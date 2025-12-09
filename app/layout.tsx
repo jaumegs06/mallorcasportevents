@@ -19,12 +19,10 @@ export const metadata: Metadata = {
   description: "Únete al evento fitness más grande del año. Masterclasses, speakers internacionales y una experiencia inolvidable. Palma de Mallorca, 15-16 Junio 2026.",
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
-  params
 }: Readonly<{
   children: React.ReactNode;
-  params: Promise<{locale: string}>;
 }>) {
   return (
     <html className="scroll-smooth">
