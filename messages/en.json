@@ -1,0 +1,97 @@
+{
+  "nav": {
+    "home": "HOME",
+    "speakers": "SPEAKERS",
+    "agenda": "AGENDA",
+    "tickets": "TICKETS",
+    "buyTickets": "BUY TICKETS"
+  },
+  "hero": {
+    "date": "JUNE 15, 2026",
+    "title": "MALLORCA FITNESS",
+    "subtitle": "WEEKEND",
+    "description": "The most epic fitness, wellness and transformation event",
+    "location": "Palma de Mallorca, Spain",
+    "participants": "+5000 Participants",
+    "countdown": "Countdown",
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Min",
+    "seconds": "Sec",
+    "buyTickets": "BUY TICKETS",
+    "seeSpeakers": "SEE SPEAKERS"
+  },
+  "speakers": {
+    "title": "SPEAKERS",
+    "subtitle": "The best trainers and fitness specialists in the world",
+    "specialties": {
+      "crossfit": "CrossFit & HIIT",
+      "yoga": "Yoga & Mindfulness",
+      "nutrition": "Sports Nutrition",
+      "powerlifting": "Powerlifting",
+      "pilates": "Pilates & Wellness",
+      "functional": "Functional Training"
+    }
+  },
+  "agenda": {
+    "title": "AGENDA",
+    "subtitle": "Complete program of activities and masterclasses",
+    "day1": "DAY 1",
+    "day2": "DAY 2",
+    "date1": "June 15",
+    "date2": "June 16",
+    "sessions": {
+      "opening": "Opening & Keynote",
+      "crossfit": "CrossFit Extreme Session",
+      "nutrition": "High Performance Nutrition",
+      "lunch": "Lunch & Networking",
+      "powerlifting": "Powerlifting Masterclass",
+      "yoga": "Yoga & Mindfulness",
+      "functional": "Advanced Functional Training",
+      "pilates": "Pilates & Core Training",
+      "panel": "Panel: The Future of Fitness",
+      "hiit": "HIIT Challenge",
+      "closing": "Closing Ceremony"
+    },
+    "instructors": {
+      "team": "Fit Summit Team",
+      "free": "Free",
+      "all": "All Speakers"
+    }
+  },
+  "tickets": {
+    "title": "TICKETS",
+    "subtitle": "Choose your experience and secure your spot at the event of the year",
+    "alert": "LAST SPOTS AVAILABLE!",
+    "popular": "Most Popular",
+    "perPerson": "per person",
+    "buyNow": "BUY NOW",
+    "tiers": {
+      "general": "GENERAL",
+      "vip": "VIP",
+      "premium": "PREMIUM"
+    },
+    "features": {
+      "allSessions": "Access to all sessions",
+      "material": "Event material",
+      "certificate": "Attendance certificate",
+      "coffee": "Networking Coffee Break",
+      "exhibitions": "Access to exhibition area",
+      "everything": "Everything from General +",
+      "seats": "Premium seating",
+      "meetGreet": "Meet & Greet with speakers",
+      "lunch": "Premium lunch included",
+      "kit": "Exclusive VIP kit",
+      "afterparty": "Access to afterparty",
+      "discounts": "Partner discounts",
+      "everythingVip": "Everything from VIP +",
+      "masterclass": "Exclusive private masterclass",
+      "oneOnOne": "1-on-1 session with speaker",
+      "annualPass": "Annual pass to fitness events",
+      "merchandise": "Premium merchandise pack",
+      "gala": "Exclusive gala dinner",
+      "nutrition": "Personalized nutrition program"
+    },
+    "footer": "All prices include VAT • Free cancellation up to 30 days before the event"
+  }
+}
