@@ -6,14 +6,14 @@ import { notFound } from 'next/navigation';
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({locale}));
 }
- 
-export default async function LocaleLayout({
-  children,
-  params
-}: {
+
+type Props = {
   children: React.ReactNode;
-  params: {locale: string};
-}) {
+  params: Promise<{locale: string}>;
+};
+ 
+export default async function LocaleLayout(props: Props) {
+  const params = await props.params;
   const {locale} = params;
   
   if (!routing.locales.includes(locale as any)) {
@@ -24,7 +24,7 @@ export default async function LocaleLayout({
  
   return (
     <NextIntlClientProvider messages={messages}>
-      {children}
+      {props.children}
     </NextIntlClientProvider>
   );
 }
