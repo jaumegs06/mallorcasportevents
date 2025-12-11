@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Calendar, Users, MapPin, Dumbbell, Bike } from "lucide-react";
+import { Calendar, Users, MapPin, Dumbbell, Bike, Heart, Award, Sparkles } from "lucide-react";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 
@@ -11,16 +11,40 @@ export default function HomePage() {
   const locale = params.locale as string;
   const events = [
     {
+      id: 'madrid-sevilla',
+      title: 'Ruta Ultrafondo Solidaria',
+      subtitle: 'Madrid - Sevilla',
+      description: 'El reto más épico y solidario: 550km por el ciclismo femenino y contra el cáncer',
+      date: '16-18 Octubre 2026',
+      location: 'Madrid → Sevilla',
+      participants: 'Únete',
+      icon: (
+        <div className="relative">
+          <Heart size={40} className="fill-white" />
+          <Bike size={24} className="absolute -bottom-1 -right-1" />
+        </div>
+      ),
+      color: 'from-orange-500 via-pink-500 to-blue-900',
+      bgImage: '/madrid-sevilla/hero.png',
+      link: `/${locale}/madrid-sevilla`,
+      theme: 'dark'
+    },
+    {
       id: 'fitness',
-      title: 'Mallorca Fitness Weekend',
-      subtitle: 'Wellness & Transformation',
-      description: 'El evento más épico de fitness con masterclasses y speakers internacionales',
-      date: '15-16 Junio 2026',
-      location: 'Palma de Mallorca',
-      participants: '+5000',
-      icon: <Dumbbell size={48} />,
-      color: 'from-lime-400 to-cyan-400',
-      bgImage: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&h=600&fit=crop',
+      title: 'Mallorca Fitness Weekend 2027',
+      subtitle: '⭐ The Ultimate Elite',
+      description: 'La experiencia fitness más premium y profesional de Europa con speakers internacionales',
+      date: '8-9 Mayo 2027',
+      location: 'Calvià, Mallorca',
+      participants: 'VIP Experience',
+      icon: (
+        <div className="relative">
+          <Award size={40} />
+          <Sparkles size={20} className="absolute -top-1 -right-1 text-amber-300" />
+        </div>
+      ),
+      color: 'from-blue-600 via-orange-500 to-amber-400',
+      bgImage: '/mfw-2027/hero.png',
       link: `/${locale}/fitness-weekend`,
       theme: 'dark'
     },
@@ -46,7 +70,7 @@ export default function HomePage() {
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-grid-pattern-light opacity-50"></div>
-        
+
         {/* Content */}
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
           <motion.div
@@ -65,23 +89,23 @@ export default function HomePage() {
             </p>
           </motion.div>
 
-          {/* Scroll Indicator */}
+          {/* Features highlight */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 1 }}
-            className="absolute bottom-12 left-1/2 -translate-x-1/2"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="flex flex-wrap justify-center gap-8 sm:gap-12"
           >
-            <div className="flex flex-col items-center gap-2 text-gray-400">
-              <span className="text-sm font-semibold uppercase tracking-wider">Explora nuestros eventos</span>
-              <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-                className="w-6 h-10 border-2 border-gray-400 rounded-full flex items-start justify-center p-2"
-              >
-                <div className="w-1 h-3 bg-gray-400 rounded-full"></div>
-              </motion.div>
-            </div>
+            {[
+              { label: '3 Eventos', subtext: 'Premium' },
+              { label: 'Mallorca', subtext: 'Destino Único' },
+              { label: '2026-2027', subtext: 'Próximas Fechas' }
+            ].map((item, idx) => (
+              <div key={idx} className="text-center">
+                <div className="text-2xl sm:text-3xl font-black text-gray-900">{item.label}</div>
+                <div className="text-sm text-gray-500 font-medium">{item.subtext}</div>
+              </div>
+            ))}
           </motion.div>
         </div>
       </section>
