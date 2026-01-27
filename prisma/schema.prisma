@@ -1,0 +1,64 @@
+// Prisma Schema - Mallorca Sport Events Backend
+// Database: PostgreSQL
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// Newsletter Subscribers
+model Newsletter {
+  id            String   @id @default(cuid())
+  email         String   @unique
+  locale        String   @default("es") // es, en, de
+  subscribedAt  DateTime @default(now())
+  verified      Boolean  @default(false)
+  verifyToken   String?  @unique
+  source        String?  // "manual", "contact_form", "event_page"
+  
+  @@index([email])
+  @@index([verified])
+  @@map("newsletter")
+}
+
+// Contact/Support Messages
+model ContactMessage {
+  id          String   @id @default(cuid())
+  name        String
+  email       String
+  subject     String
+  message     String   @db.Text
+  eventType   String?  // "fitness-weekend", "madrid-sevilla", "rad-am-ring", "general"
+  locale      String   @default("es")
+  createdAt   DateTime @default(now())
+  status      String   @default("pending") // "pending", "read", "resolved"
+  adminNotes  String?  @db.Text
+  
+  @@index([email])
+  @@index([status])
+  @@index([createdAt])
+  @@map("contact_messages")
+}
+
+// Frequently Asked Questions (Multilingual)
+model FAQ {
+  id          String   @id @default(cuid())
+  question_es String
+  answer_es   String   @db.Text
+  question_en String
+  answer_en   String   @db.Text
+  question_de String
+  answer_de   String   @db.Text
+  category    String   // "general", "tickets", "venue", "travel"
+  order       Int      @default(0)
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@index([category])
+  @@index([active])
+  @@map("faqs")
+}

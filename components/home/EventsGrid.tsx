@@ -25,6 +25,7 @@ export default function EventsGrid({ locale }: EventsGridProps) {
       link: `/${locale}/fitness-weekend`,
       theme: 'dark'
     },
+    /*
     {
       id: 'cycling',
       title: 'Rad am Ring Mallorca',
@@ -39,6 +40,7 @@ export default function EventsGrid({ locale }: EventsGridProps) {
       link: `/${locale}/rad-am-ring`,
       theme: 'light'
     }
+    */
   ];
 
   return (
