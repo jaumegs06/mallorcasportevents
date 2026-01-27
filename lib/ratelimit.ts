@@ -37,7 +37,7 @@ export const contactRatelimit = redis
  */
 export function getClientIp(request: NextRequest): string {
     const forwarded = request.headers.get('x-forwarded-for');
-    const ip = forwarded ? forwarded.split(',')[0] : request.ip || '127.0.0.1';
+    const ip = forwarded ? forwarded.split(',')[0] : (request as any).ip || '127.0.0.1';
     return ip;
 }
 
