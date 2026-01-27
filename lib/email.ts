@@ -1,29 +1,29 @@
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY || 're_123');
 
 interface EmailTemplateData {
-    name?: string;
-    verifyUrl?: string;
-    unsubscribeUrl?: string;
+  name?: string;
+  verifyUrl?: string;
+  unsubscribeUrl?: string;
 }
 
 /**
  * Send newsletter verification email
  */
 export async function sendVerificationEmail(
-    email: string,
-    token: string,
-    locale: string
+  email: string,
+  token: string,
+  locale: string
 ): Promise<{ success: boolean; error?: string }> {
-    try {
-        const baseUrl = process.env.NEXT_PUBLIC_URL || 'http://localhost:3000';
-        const verifyUrl = `${baseUrl}/api/newsletter/verify?token=${token}`;
+  try {
+    const baseUrl = process.env.NEXT_PUBLIC_URL || 'http://localhost:3000';
+    const verifyUrl = `${baseUrl}/api/newsletter/verify?token=${token}`;
 
-        const messages = {
-            es: {
-                subject: '✉️ Confirma tu suscripción - Mallorca Sport Events',
-                html: `
+    const messages = {
+      es: {
+        subject: '✉️ Confirma tu suscripción - Mallorca Sport Events',
+        html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
             <h1 style="color: #ec4899;">¡Bienvenido a Mallorca Sport Events!</h1>
             <p>Gracias por suscribirte a nuestras novedades.</p>
@@ -36,10 +36,10 @@ export async function sendVerificationEmail(
             <p style="color: #999; font-size: 12px;">¿No te has suscrito? Ignora este email.</p>
           </div>
         `,
-            },
-            en: {
-                subject: '✉️ Confirm your subscription - Mallorca Sport Events',
-                html: `
+      },
+      en: {
+        subject: '✉️ Confirm your subscription - Mallorca Sport Events',
+        html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
             <h1 style="color: #ec4899;">Welcome to Mallorca Sport Events!</h1>
             <p>Thank you for subscribing to our newsletter.</p>
@@ -52,10 +52,10 @@ export async function sendVerificationEmail(
             <p style="color: #999; font-size: 12px;">Didn't subscribe? Ignore this email.</p>
           </div>
         `,
-            },
-            de: {
-                subject: '✉️ Bestätige dein Abonnement - Mallorca Sport Events',
-                html: `
+      },
+      de: {
+        subject: '✉️ Bestätige dein Abonnement - Mallorca Sport Events',
+        html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
             <h1 style="color: #ec4899;">Willkommen bei Mallorca Sport Events!</h1>
             <p>Vielen Dank für Ihr Abonnement unseres Newsletters.</p>
@@ -68,38 +68,38 @@ export async function sendVerificationEmail(
             <p style="color: #999; font-size: 12px;">Nicht abonniert? Ignorieren Sie diese E-Mail.</p>
           </div>
         `,
-            },
-        };
+      },
+    };
 
-        const msg = messages[locale as keyof typeof messages] || messages.es;
+    const msg = messages[locale as keyof typeof messages] || messages.es;
 
-        await resend.emails.send({
-            from: process.env.EMAIL_FROM || 'noreply@mallorcasportevents.com',
-            to: email,
-            subject: msg.subject,
-            html: msg.html,
-        });
+    await resend.emails.send({
+      from: process.env.EMAIL_FROM || 'noreply@mallorcasportevents.com',
+      to: email,
+      subject: msg.subject,
+      html: msg.html,
+    });
 
-        return { success: true };
-    } catch (error) {
-        console.error('Error sending verification email:', error);
-        return { success: false, error: 'Failed to send email' };
-    }
+    return { success: true };
+  } catch (error) {
+    console.error('Error sending verification email:', error);
+    return { success: false, error: 'Failed to send email' };
+  }
 }
 
 /**
  * Send contact form confirmation email to user
  */
 export async function sendContactConfirmation(
-    email: string,
-    name: string,
-    locale: string
+  email: string,
+  name: string,
+  locale: string
 ): Promise<{ success: boolean; error?: string }> {
-    try {
-        const messages = {
-            es: {
-                subject: '✅ Mensaje recibido - Mallorca Sport Events',
-                html: `
+  try {
+    const messages = {
+      es: {
+        subject: '✅ Mensaje recibido - Mallorca Sport Events',
+        html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
             <h1 style="color: #10b981;">¡Gracias por contactarnos!</h1>
             <p>Hola ${name},</p>
@@ -108,10 +108,10 @@ export async function sendContactConfirmation(
             <p style="margin-top: 30px;">Saludos,<br><strong>Equipo Mallorca Sport Events</strong></p>
           </div>
         `,
-            },
-            en: {
-                subject: '✅ Message received - Mallorca Sport Events',
-                html: `
+      },
+      en: {
+        subject: '✅ Message received - Mallorca Sport Events',
+        html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
             <h1 style="color: #10b981;">Thank you for contacting us!</h1>
             <p>Hello ${name},</p>
@@ -120,10 +120,10 @@ export async function sendContactConfirmation(
             <p style="margin-top: 30px;">Best regards,<br><strong>Mallorca Sport Events Team</strong></p>
           </div>
         `,
-            },
-            de: {
-                subject: '✅ Nachricht erhalten - Mallorca Sport Events',
-                html: `
+      },
+      de: {
+        subject: '✅ Nachricht erhalten - Mallorca Sport Events',
+        html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
             <h1 style="color: #10b981;">Vielen Dank für Ihre Kontaktaufnahme!</h1>
             <p>Hallo ${name},</p>
@@ -132,45 +132,45 @@ export async function sendContactConfirmation(
             <p style="margin-top: 30px;">Mit freundlichen Grüßen,<br><strong>Mallorca Sport Events Team</strong></p>
           </div>
         `,
-            },
-        };
+      },
+    };
 
-        const msg = messages[locale as keyof typeof messages] || messages.es;
+    const msg = messages[locale as keyof typeof messages] || messages.es;
 
-        await resend.emails.send({
-            from: process.env.EMAIL_FROM || 'noreply@mallorcasportevents.com',
-            to: email,
-            subject: msg.subject,
-            html: msg.html,
-        });
+    await resend.emails.send({
+      from: process.env.EMAIL_FROM || 'noreply@mallorcasportevents.com',
+      to: email,
+      subject: msg.subject,
+      html: msg.html,
+    });
 
-        return { success: true };
-    } catch (error) {
-        console.error('Error sending contact confirmation:', error);
-        return { success: false, error: 'Failed to send email' };
-    }
+    return { success: true };
+  } catch (error) {
+    console.error('Error sending contact confirmation:', error);
+    return { success: false, error: 'Failed to send email' };
+  }
 }
 
 /**
  * Send admin notification for new contact message
  */
 export async function sendAdminNotification(
-    contactData: {
-        name: string;
-        email: string;
-        subject: string;
-        message: string;
-        eventType?: string | null;
-    }
+  contactData: {
+    name: string;
+    email: string;
+    subject: string;
+    message: string;
+    eventType?: string | null;
+  }
 ): Promise<{ success: boolean; error?: string }> {
-    try {
-        const adminEmail = process.env.ADMIN_EMAIL || 'admin@mallorcasportevents.com';
+  try {
+    const adminEmail = process.env.ADMIN_EMAIL || 'admin@mallorcasportevents.com';
 
-        await resend.emails.send({
-            from: process.env.EMAIL_FROM || 'noreply@mallorcasportevents.com',
-            to: adminEmail,
-            subject: `🔔 Nuevo mensaje de contacto: ${contactData.subject}`,
-            html: `
+    await resend.emails.send({
+      from: process.env.EMAIL_FROM || 'noreply@mallorcasportevents.com',
+      to: adminEmail,
+      subject: `🔔 Nuevo mensaje de contacto: ${contactData.subject}`,
+      html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h1 style="color: #3b82f6;">Nuevo mensaje de contacto</h1>
           <table style="width: 100%; border-collapse: collapse;">
@@ -199,11 +199,11 @@ export async function sendAdminNotification(
           </div>
         </div>
       `,
-        });
+    });
 
-        return { success: true };
-    } catch (error) {
-        console.error('Error sending admin notification:', error);
-        return { success: false, error: 'Failed to send notification' };
-    }
+    return { success: true };
+  } catch (error) {
+    console.error('Error sending admin notification:', error);
+    return { success: false, error: 'Failed to send notification' };
+  }
 }
