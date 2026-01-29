@@ -1,9 +1,19 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Calendar, MapPin, Users, Heart, Bike, Zap, Award, Route } from "lucide-react";
+import { Calendar, MapPin, Users, Heart, Bike, Zap, Award, Route, ArrowDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import CountdownTimer from "../../../components/madrid-sevilla/CountdownTimer";
+import StagesMap from "../../../components/madrid-sevilla/StagesMap";
+import FaqSection from "../../../components/madrid-sevilla/FaqSection";
+
+const scrollToSection = (id: string) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+};
 
 export default function MadridSevillaPage() {
   const stages = [
@@ -83,7 +93,10 @@ export default function MadridSevillaPage() {
                   {item}
                 </a>
               ))}
-              <button className="px-6 py-3 bg-gradient-to-r from-[#ff6b35] to-[#ec4899] text-white font-black rounded-full hover:shadow-xl transition-all">
+              <button
+                onClick={() => scrollToSection('participar')}
+                className="px-6 py-3 bg-gradient-to-r from-[#ff6b35] to-[#ec4899] text-white font-black rounded-full hover:shadow-xl transition-all"
+              >
                 SÚMATE AL RETO
               </button>
             </div>
@@ -124,14 +137,20 @@ export default function MadridSevillaPage() {
             <p className="text-2xl text-white/90 mb-4 font-bold">
               16-18 OCTUBRE 2026
             </p>
-            <p className="text-xl text-white/80 mb-12 max-w-2xl">
+            <p className="text-xl text-white/80 mb-8 max-w-2xl">
               Uniendo dos ciudades en un reto épico por el ciclismo femenino y la lucha contra el cáncer
             </p>
+
+            {/* Countdown */}
+            <div className="mb-12">
+              <CountdownTimer />
+            </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => scrollToSection('participar')}
                 className="px-10 py-5 bg-gradient-to-r from-[#ff6b35] to-[#ec4899] text-white font-black text-xl rounded-full shadow-2xl hover:shadow-[#ec4899]/50 transition-all"
               >
                 SÚMATE AL RETO (DONAR O PARTICIPAR)
@@ -139,6 +158,7 @@ export default function MadridSevillaPage() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => scrollToSection('propósito')}
                 className="px-10 py-5 border-4 border-white text-white font-black text-xl rounded-full hover:bg-white hover:text-[#ff6b35] transition-all"
               >
                 CONOCE MÁS
@@ -247,6 +267,10 @@ export default function MadridSevillaPage() {
             </p>
           </motion.div>
 
+          <div className="mb-12">
+            <StagesMap />
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {stages.map((stage, index) => (
               <motion.div
@@ -338,7 +362,7 @@ export default function MadridSevillaPage() {
               </div>
 
               <h4 className="text-2xl font-black mb-4 text-[#ec4899]">"PEDALEA POR ELLAS"</h4>
-              
+
               <div className="bg-gradient-to-r from-[#ec4899] to-pink-500 text-white p-6 rounded-2xl mb-6">
                 <div className="text-center">
                   <div className="text-5xl font-black mb-2">1€ = 1KM</div>
@@ -390,7 +414,7 @@ export default function MadridSevillaPage() {
               </div>
 
               <h4 className="text-2xl font-black mb-4 text-[#1e3a8a]">"DESDE CASA O TU GIMNASIO"</h4>
-              
+
               <div className="bg-gradient-to-r from-[#1e3a8a] to-blue-600 text-white p-6 rounded-2xl mb-6">
                 <div className="text-center">
                   <div className="text-4xl font-black mb-2">ZWIFT + DONACIÓN</div>
@@ -464,7 +488,7 @@ export default function MadridSevillaPage() {
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                  
+
                   {/* Info overlay */}
                   <div className="absolute bottom-0 left-0 right-0 p-6">
                     <h3 className="text-2xl font-black mb-1">{ambassador.name}</h3>
@@ -498,6 +522,9 @@ export default function MadridSevillaPage() {
           </motion.div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FaqSection />
 
       {/* CTA Final */}
       <section className="bg-gradient-to-r from-[#ff6b35] via-[#ec4899] to-[#1e3a8a] py-24 text-white">
