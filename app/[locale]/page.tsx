@@ -48,6 +48,7 @@ export default function HomePage() {
       link: `/${locale}/fitness-weekend`,
       theme: 'dark'
     },
+    /*
     {
       id: 'cycling',
       title: 'Rad am Ring Mallorca',
@@ -62,6 +63,7 @@ export default function HomePage() {
       link: `/${locale}/rad-am-ring`,
       theme: 'light'
     }
+    */
   ];
 
   return (
