@@ -544,6 +544,7 @@ export default function MadridSevillaPage() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => scrollToSection('participar')}
                 className="px-12 py-6 bg-white text-[#ec4899] font-black text-2xl rounded-full shadow-2xl hover:shadow-white/50 transition-all"
               >
                 INSCRÍBETE AHORA
@@ -551,6 +552,7 @@ export default function MadridSevillaPage() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => scrollToSection('participar')}
                 className="px-12 py-6 border-4 border-white text-white font-black text-2xl rounded-full hover:bg-white hover:text-[#ff6b35] transition-all"
               >
                 HACER DONACIÓN
