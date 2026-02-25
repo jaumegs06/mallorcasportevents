@@ -9,6 +9,7 @@ import { useParams } from "next/navigation";
 export default function HomePage() {
   const params = useParams();
   const locale = params.locale as string;
+  // Triggering redeploy after Supabase DB restore
   const events = [
     {
       id: 'fitness',
