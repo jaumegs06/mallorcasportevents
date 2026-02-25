@@ -5,15 +5,25 @@ import { motion } from "framer-motion";
 import { Calendar, MapPin, Users, Award, Dumbbell, Brain, Briefcase, Network, Star, GraduationCap, Sparkles, ChevronDown, Mail, Phone, Instagram, Linkedin, Facebook, Twitter } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 
 export default function FitnessWeekend2027Page() {
-  const eventDate = new Date("2027-05-08T09:00:00");
+  const params = useParams();
+  const locale = params.locale as string;
+  const eventDate = new Date("2027-05-14T09:00:00");
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
     minutes: 0,
     seconds: 0,
   });
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -107,7 +117,8 @@ export default function FitnessWeekend2027Page() {
         "Material del evento",
         "Certificado digital"
       ],
-      highlight: false
+      highlight: false,
+      type: "presencial"
     },
     {
       name: "PREMIUM EXPERIENCE",
@@ -120,7 +131,8 @@ export default function FitnessWeekend2027Page() {
         "Networking exclusivo",
         "Cena de gala"
       ],
-      highlight: true
+      highlight: true,
+      type: "presencial"
     },
     {
       name: "VIP ULTIMATE ELITE",
@@ -134,7 +146,8 @@ export default function FitnessWeekend2027Page() {
         "Gift premium",
         "Servicio concierge"
       ],
-      highlight: false
+      highlight: false,
+      type: "presencial"
     }
   ];
 
@@ -165,7 +178,9 @@ export default function FitnessWeekend2027Page() {
                   {item}
                 </a>
               ))}
-              <button className="px-6 py-3 bg-gradient-to-r from-orange-500 to-red-600 text-white font-black rounded-lg hover:shadow-xl hover:shadow-orange-500/50 transition-all">
+              <button
+                onClick={() => scrollToSection('entradas')}
+                className="px-6 py-3 bg-gradient-to-r from-orange-500 to-red-600 text-white font-black rounded-lg hover:shadow-xl hover:shadow-orange-500/50 transition-all">
                 RESERVAR VIP
               </button>
             </div>
@@ -174,7 +189,7 @@ export default function FitnessWeekend2027Page() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden mt-20">
+      <section className="relative min-h-screen flex items-center justify-center pt-32 pb-20">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
@@ -213,7 +228,7 @@ export default function FitnessWeekend2027Page() {
             </h1>
 
             <p className="text-2xl sm:text-3xl md:text-4xl text-orange-400 mb-4 font-black">
-              8 y 9 DE MAYO 2027
+              14, 15 Y 16 DE MAYO 2027
             </p>
             <p className="text-xl sm:text-2xl text-gray-300 mb-12 font-bold flex items-center justify-center gap-2">
               <MapPin size={24} className="text-orange-400" />
@@ -255,6 +270,7 @@ export default function FitnessWeekend2027Page() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => scrollToSection('entradas')}
                 className="px-10 py-5 bg-gradient-to-r from-orange-500 to-red-600 text-white font-black text-xl rounded-full shadow-2xl shadow-orange-500/50 hover:shadow-orange-500/80 transition-all w-full sm:w-auto"
               >
                 RESERVA TU EXPERIENCIA VIP
@@ -262,6 +278,7 @@ export default function FitnessWeekend2027Page() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => scrollToSection('evento')}
                 className="px-10 py-5 border-4 border-white text-white font-black text-xl rounded-full hover:bg-white hover:text-slate-950 transition-all w-full sm:w-auto"
               >
                 VER PROGRAMA
@@ -281,7 +298,7 @@ export default function FitnessWeekend2027Page() {
       </section>
 
       {/* Sobre el Evento - La Promesa */}
-      <section id="evento" className="py-24 bg-gradient-to-b from-slate-950 to-slate-900">
+      <section id="evento" className="py-24 bg-gradient-to-b from-slate-950 to-slate-900" >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -330,7 +347,7 @@ export default function FitnessWeekend2027Page() {
       </section>
 
       {/* Los Embajadores */}
-      <section id="speakers" className="py-24 bg-slate-900">
+      <section id="speakers" className="py-24 bg-slate-900" >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -409,7 +426,7 @@ export default function FitnessWeekend2027Page() {
       </section>
 
       {/* Zonas de Experiencia */}
-      <section id="experiencia" className="py-24 bg-gradient-to-b from-slate-900 to-slate-950">
+      <section id="experiencia" className="py-24 bg-gradient-to-b from-slate-900 to-slate-950" >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -460,53 +477,37 @@ export default function FitnessWeekend2027Page() {
         </div>
       </section>
 
-      {/* Destino Calvià */}
-      <section id="destino" className="py-24 bg-slate-900 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <Image
-            src="/mfw-2027/calvia.png"
-            alt="Calvià"
-            fill
-            className="object-cover"
-          />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Patrocinadores / Sponsors */}
+      <section id="sponsors" className="py-24 bg-slate-900 overflow-hidden" >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="mb-16"
           >
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-black mb-6">
-              <span className="text-white">NO TODO ES FITNESS</span>
+              <span className="bg-gradient-to-r from-blue-400 to-orange-400 bg-clip-text text-transparent">
+                CON EL APOYO DE:
+              </span>
             </h2>
-            <p className="text-2xl sm:text-3xl bg-gradient-to-r from-blue-400 to-orange-400 bg-clip-text text-transparent font-black mb-4">
-              DESTINO CALVIÀ - EXPERIENCIA 360°
-            </p>
-            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              Combina formación profesional de élite con la experiencia mediterránea más exclusiva de Mallorca
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              Marcas e instituciones que apuestan por la excelencia en el fitness y el deporte
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { icon: "🍽️", title: "Gastronomía", desc: "Cocina mediterránea de autor" },
-              { icon: "🌴", title: "Chill Out", desc: "Espacios de desconexión premium" },
-              { icon: "🏨", title: "Hotelería", desc: "Alojamiento 4-5 estrellas" },
-              { icon: "☀️", title: "Sol y Playa", desc: "Costa paradisíaca mediterránea" }
-            ].map((item, index) => (
+          {/* Sponsors Grid - Placeholders for now */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 items-center justify-items-center opacity-60">
+            {[1, 2, 3, 4, 5, 6].map((i) => (
               <motion.div
-                key={item.title}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                key={i}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 0.8 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="backdrop-blur-xl bg-white/10 border-2 border-blue-500/30 rounded-2xl p-6 text-center hover:bg-white/20 transition-all"
+                transition={{ delay: i * 0.1 }}
+                className="w-full max-w-[200px] h-32 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center p-8 grayscale hover:grayscale-0 hover:bg-white/10 transition-all border-dashed"
               >
-                <div className="text-5xl mb-4">{item.icon}</div>
-                <h3 className="text-xl font-black mb-2 text-white">{item.title}</h3>
-                <p className="text-gray-300 text-sm">{item.desc}</p>
+                <span className="text-gray-500 font-bold tracking-widest text-xs">SPONSOR {i}</span>
               </motion.div>
             ))}
           </div>
@@ -515,17 +516,15 @@ export default function FitnessWeekend2027Page() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-center mt-12"
+            className="mt-16 inline-block"
           >
-            <p className="text-lg text-orange-400 font-bold">
-              Atrae a público internacional vendiendo la experiencia completa de viaje
-            </p>
+            <p className="text-gray-500 text-sm">¿Quieres ser patrocinador? <a href="mailto:oficinatecnica@onicestudio.com" className="text-orange-400 font-bold hover:underline">Contacta con nosotros</a></p>
           </motion.div>
         </div>
       </section>
 
       {/* Jornada Puertas Abiertas */}
-      <section className="py-24 bg-gradient-to-r from-blue-900 to-blue-800">
+      <section className="py-24 bg-gradient-to-r from-blue-900 to-blue-800" >
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -553,7 +552,7 @@ export default function FitnessWeekend2027Page() {
       </section>
 
       {/* Pricing */}
-      <section id="entradas" className="py-24 bg-slate-950">
+      <section id="entradas" className="py-24 bg-slate-950" >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -571,6 +570,7 @@ export default function FitnessWeekend2027Page() {
             </p>
             <p className="text-gray-400">Mejor precio: Compra ahora</p>
           </motion.div>
+
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {pricingTiers.map((tier, index) => (
@@ -605,14 +605,15 @@ export default function FitnessWeekend2027Page() {
                     </li>
                   ))}
                 </ul>
-                <button
-                  className={`w-full py-4 rounded-full font-black text-lg transition-all ${tier.highlight
+                <Link
+                  href={`/${locale}/fitness-weekend/checkout?package=${encodeURIComponent(tier.name)}&price=${encodeURIComponent(tier.price)}`}
+                  className={`w-full py-4 rounded-full font-black text-lg transition-all text-center block ${tier.highlight
                     ? 'bg-gradient-to-r from-amber-500 to-orange-600 text-black hover:shadow-xl hover:shadow-amber-500/50'
                     : 'bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:from-blue-500 hover:to-blue-600'
                     }`}
                 >
                   RESERVAR AHORA
-                </button>
+                </Link>
               </motion.div>
             ))}
           </div>
@@ -620,7 +621,7 @@ export default function FitnessWeekend2027Page() {
       </section>
 
       {/* Newsletter */}
-      <section className="py-24 bg-gradient-to-r from-blue-900 via-slate-900 to-orange-900">
+      <section className="py-24 bg-gradient-to-r from-blue-900 via-slate-900 to-orange-900" >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -658,7 +659,7 @@ export default function FitnessWeekend2027Page() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-950 border-t border-blue-500/20 py-16">
+      <footer className="bg-slate-950 border-t border-blue-500/20 py-16" >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
             {/* Info */}
@@ -669,7 +670,7 @@ export default function FitnessWeekend2027Page() {
               <p className="text-gray-400 mb-4">
                 Mallorca Fitness Weekend<br />
                 The Ultimate Elite<br />
-                8-9 Mayo 2027
+                14-15-16 Mayo 2027
               </p>
               <div className="flex items-start gap-2 text-gray-400 text-sm">
                 <MapPin size={16} className="mt-1 flex-shrink-0 text-orange-400" />
@@ -683,9 +684,11 @@ export default function FitnessWeekend2027Page() {
               <ul className="space-y-2">
                 {['Sobre el Evento', 'Speakers', 'Zonas de Experiencia', 'Destino Calvià', 'Pricing'].map((item) => (
                   <li key={item}>
-                    <a href={`#${item.toLowerCase()}`} className="text-gray-400 hover:text-orange-400 transition-colors">
+                    <button
+                      onClick={() => scrollToSection(item.toLowerCase().replace(/ /g, '-').replace('zonas-de-experiencia', 'experiencia').replace('destino-calvià', 'destino').replace('sobre-el-evento', 'evento'))}
+                      className="text-gray-400 hover:text-orange-400 transition-colors">
                       {item}
-                    </a>
+                    </button>
                   </li>
                 ))}
               </ul>
@@ -749,6 +752,6 @@ export default function FitnessWeekend2027Page() {
           </div>
         </div>
       </footer>
-    </div>
+    </div >
   );
 }

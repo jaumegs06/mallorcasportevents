@@ -16,7 +16,7 @@ export default function EventsGrid({ locale }: EventsGridProps) {
       title: 'Mallorca Fitness Weekend',
       subtitle: 'Wellness & Transformation',
       description: 'El evento más épico de fitness con masterclasses y speakers internacionales',
-      date: '15-16 Junio 2026',
+      date: '14-16 Mayo 2027',
       location: 'Palma de Mallorca',
       participants: '+5000',
       icon: <Dumbbell size={48} />,

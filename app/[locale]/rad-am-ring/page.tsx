@@ -6,6 +6,13 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function RadAmRingPage() {
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const disciplines = [
     {
       title: "24H RACE",
@@ -53,7 +60,9 @@ export default function RadAmRingPage() {
                   {item}
                 </a>
               ))}
-              <button className="px-6 py-3 bg-[#E30613] text-white font-black rounded-sm hover:bg-black transition-colors">
+              <button
+                onClick={() => scrollToSection('inscripciones')}
+                className="px-6 py-3 bg-[#E30613] text-white font-black rounded-sm hover:bg-black transition-colors">
                 INSCRIBIRSE
               </button>
             </div>
@@ -62,7 +71,7 @@ export default function RadAmRingPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden mt-20">
+      <section className="relative min-h-screen flex items-center justify-center pt-32 pb-20">
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1517649763962-0c623066013b?w=1920&h=1080&fit=crop"
@@ -97,6 +106,7 @@ export default function RadAmRingPage() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => scrollToSection('inscripciones')}
                 className="px-8 py-4 bg-[#E30613] text-white font-black text-lg hover:bg-black transition-colors"
               >
                 INSCRIBIRSE AHORA
@@ -104,6 +114,7 @@ export default function RadAmRingPage() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => scrollToSection('disciplinas')}
                 className="px-8 py-4 border-2 border-black text-black font-black text-lg hover:bg-black hover:text-white transition-colors"
               >
                 VER RECORRIDO
@@ -187,7 +198,7 @@ export default function RadAmRingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-[#E30613] py-24 text-white">
+      <section id="inscripciones" className="bg-[#E30613] py-24 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -228,3 +239,4 @@ export default function RadAmRingPage() {
     </div>
   );
 }
+

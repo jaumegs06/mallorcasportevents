@@ -105,10 +105,10 @@ export default function MadridSevillaPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden mt-20">
+      <section className="relative min-h-screen flex items-center justify-center pt-32 pb-20">
         <div className="absolute inset-0">
           <Image
-            src="/madrid-sevilla/hero.png"
+            src="/madrid-sevilla/hero.jpg"
             alt="Ruta Madrid Sevilla"
             fill
             className="object-cover"
@@ -388,8 +388,7 @@ export default function MadridSevillaPage() {
               </ul>
 
               <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                onClick={() => scrollToSection('participar')}
                 className="w-full px-8 py-4 bg-gradient-to-r from-[#ec4899] to-pink-600 text-white font-black text-lg rounded-full shadow-lg hover:shadow-2xl transition-all"
               >
                 INSCRÍBETE PRESENCIAL
@@ -440,8 +439,7 @@ export default function MadridSevillaPage() {
               </ul>
 
               <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                onClick={() => scrollToSection('participar')}
                 className="w-full px-8 py-4 bg-gradient-to-r from-[#1e3a8a] to-blue-600 text-white font-black text-lg rounded-full shadow-lg hover:shadow-2xl transition-all"
               >
                 ÚNETE VIRTUALMENTE
@@ -452,7 +450,7 @@ export default function MadridSevillaPage() {
       </section>
 
       {/* Embajadores Section */}
-      <section id="embajadores" className="py-24 bg-gray-900 text-white">
+      <section id="embajadores" className="py-24 bg-gray-900 text-white" >
         <div className="max-w-7xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -524,10 +522,10 @@ export default function MadridSevillaPage() {
       </section>
 
       {/* FAQ Section */}
-      <FaqSection />
+      < FaqSection />
 
       {/* CTA Final */}
-      <section className="bg-gradient-to-r from-[#ff6b35] via-[#ec4899] to-[#1e3a8a] py-24 text-white">
+      <section className="bg-gradient-to-r from-[#ff6b35] via-[#ec4899] to-[#1e3a8a] py-24 text-white" >
         <div className="max-w-5xl mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -563,7 +561,7 @@ export default function MadridSevillaPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-black text-white py-16">
+      <footer className="bg-black text-white py-16" >
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
             {/* Info */}
@@ -582,7 +580,7 @@ export default function MadridSevillaPage() {
             <div>
               <h4 className="text-lg font-black mb-4 text-gray-300">ENLACES</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#proposito" className="hover:text-[#ec4899] transition-colors">El Propósito</a></li>
+                <li key="propósito"><a href="#propósito" className="hover:text-[#ec4899] transition-colors">El Propósito</a></li>
                 <li><a href="#etapas" className="hover:text-[#ec4899] transition-colors">Etapas</a></li>
                 <li><a href="#participar" className="hover:text-[#ec4899] transition-colors">Cómo Participar</a></li>
                 <li><a href="#embajadores" className="hover:text-[#ec4899] transition-colors">Embajadores</a></li>

@@ -11,6 +11,25 @@ export default function HomePage() {
   const locale = params.locale as string;
   const events = [
     {
+      id: 'fitness',
+      title: 'Mallorca Fitness Weekend 2027',
+      subtitle: '⭐ The Ultimate Elite',
+      description: 'La experiencia fitness más premium y profesional de Europa con speakers internacionales',
+      date: '14-16 Mayo 2027',
+      location: 'Calvià, Mallorca',
+      participants: 'VIP Experience',
+      icon: (
+        <div className="relative">
+          <Award size={40} />
+          <Sparkles size={20} className="absolute -top-1 -right-1 text-amber-300" />
+        </div>
+      ),
+      color: 'from-blue-600 via-orange-500 to-amber-400',
+      bgImage: '/mfw-2027/hero.png',
+      link: `/${locale}/fitness-weekend`,
+      theme: 'dark'
+    },
+    {
       id: 'madrid-sevilla',
       title: 'Ruta Ultrafondo Solidaria',
       subtitle: 'Madrid - Sevilla',
@@ -25,31 +44,11 @@ export default function HomePage() {
         </div>
       ),
       color: 'from-orange-500 via-pink-500 to-blue-900',
-      bgImage: '/madrid-sevilla/hero.png',
+      bgImage: '/madrid-sevilla/hero.jpg',
       link: `/${locale}/madrid-sevilla`,
       theme: 'dark'
     },
-    {
-      id: 'fitness',
-      title: 'Mallorca Fitness Weekend 2027',
-      subtitle: '⭐ The Ultimate Elite',
-      description: 'La experiencia fitness más premium y profesional de Europa con speakers internacionales',
-      date: '8-9 Mayo 2027',
-      location: 'Calvià, Mallorca',
-      participants: 'VIP Experience',
-      icon: (
-        <div className="relative">
-          <Award size={40} />
-          <Sparkles size={20} className="absolute -top-1 -right-1 text-amber-300" />
-        </div>
-      ),
-      color: 'from-blue-600 via-orange-500 to-amber-400',
-      bgImage: '/mfw-2027/hero.png',
-      link: `/${locale}/fitness-weekend`,
-      theme: 'dark'
-    },
-    /*
-    {
+    /* {
       id: 'cycling',
       title: 'Rad am Ring Mallorca',
       subtitle: 'Cycling Experience',
@@ -62,8 +61,7 @@ export default function HomePage() {
       bgImage: 'https://images.unsplash.com/photo-1541625602330-2277a4c46182?w=800&h=600&fit=crop',
       link: `/${locale}/rad-am-ring`,
       theme: 'light'
-    }
-    */
+    } */
   ];
 
   return (
@@ -99,7 +97,7 @@ export default function HomePage() {
             className="flex flex-wrap justify-center gap-8 sm:gap-12"
           >
             {[
-              { label: '3 Eventos', subtext: 'Premium' },
+              { label: '2 Eventos', subtext: 'Premium' },
               { label: 'Mallorca', subtext: 'Destino Único' },
               { label: '2026-2027', subtext: 'Próximas Fechas' }
             ].map((item, idx) => (
