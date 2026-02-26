@@ -2,12 +2,15 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Calendar, MapPin, Users, Award, Dumbbell, Brain, Briefcase, Network, Star, GraduationCap, Sparkles, ChevronDown, Mail, Phone, Instagram, Linkedin, Facebook, Twitter } from "lucide-react";
+import { Calendar, MapPin, Users, Award, Dumbbell, Brain, Briefcase, Network, Star, GraduationCap, Sparkles, ChevronDown, Mail, Phone, Instagram, Linkedin, Facebook, Twitter, Zap } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import { useTranslations } from 'next-intl';
+import LanguageSwitcher from "@/components/navbar/LanguageSwitcher";
 
 export default function FitnessWeekend2027Page() {
+  const t = useTranslations('fitnessWeekend');
   const params = useParams();
   const locale = params.locale as string;
   const eventDate = new Date("2027-05-14T09:00:00");
@@ -27,6 +30,15 @@ export default function FitnessWeekend2027Page() {
 
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const calculateTimeLeft = () => {
@@ -64,16 +76,16 @@ export default function FitnessWeekend2027Page() {
     {
       name: "Michael Alois Wagner",
       country: "Austria",
-      title: "Líder Mundial Industria Fitness",
-      subtitle: "Asesor Estratégico Internacional",
+      title: t('ambassadors.roles.leader'),
+      subtitle: t('ambassadors.roles.strategic'),
       image: "/mfw-2027/michael-wagner.png",
       description: "Con más de 25 años liderando la transformación digital del fitness en Europa"
     },
     {
       name: "Israel Malebre",
       country: "España",
-      title: "Referencia Nacional del Fitness",
-      subtitle: "25 Años de Trayectoria",
+      title: t('ambassadors.roles.reference'),
+      subtitle: t('ambassadors.roles.trajectory'),
       image: "/mfw-2027/israel-malebre.png",
       description: "Pionero del fitness funcional en España y mentor de generaciones"
     }
@@ -82,69 +94,69 @@ export default function FitnessWeekend2027Page() {
   const experienceZones = [
     {
       icon: <Dumbbell size={40} />,
-      title: "Fitness Expo",
-      description: "Últimas tendencias y tecnología del sector fitness mundial",
-      features: ["Equipamiento innovador", "Demos en vivo", "Networking comercial"]
+      title: t('experience.expo.title'),
+      description: t('experience.expo.description'),
+      features: [t('experience.expo.features.0'), t('experience.expo.features.1'), t('experience.expo.features.2')]
     },
     {
       icon: <GraduationCap size={40} />,
-      title: "Actividades Dirigidas",
-      description: "Masterclasses en directo con los mejores entrenadores internacionales",
-      features: ["CrossFit Elite", "HIIT Avanzado", "Yoga Premium"]
+      title: t('experience.classes.title'),
+      description: t('experience.classes.description'),
+      features: [t('experience.classes.features.0'), t('experience.classes.features.1'), t('experience.classes.features.2')]
     },
     {
       icon: <Brain size={40} />,
-      title: "Cuerpo y Mente",
-      description: "Zona de wellness dedicada al equilibrio integral",
-      features: ["Yoga & Meditación", "Pilates Reformer", "Mindfulness"]
+      title: t('experience.mindBody.title'),
+      description: t('experience.mindBody.description'),
+      features: [t('experience.mindBody.features.0'), t('experience.mindBody.features.1'), t('experience.mindBody.features.2')]
     },
     {
       icon: <Briefcase size={40} />,
-      title: "Conference Area",
-      description: "Ponencias sobre gestión, salud corporativa y liderazgo",
-      features: ["Business Fitness", "Management", "Liderazgo"]
+      title: t('experience.conference.title'),
+      description: t('experience.conference.description'),
+      features: [t('experience.conference.features.0'), t('experience.conference.features.1'), t('experience.conference.features.2')]
     }
   ];
 
   const pricingTiers = [
     {
-      name: "ACCESO BÁSICO",
+      name: t('tickets.basic.name'),
       price: "149€",
       features: [
-        "Acceso 2 días completos",
-        "Fitness Expo",
-        "3 Masterclasses a elegir",
-        "Material del evento",
-        "Certificado digital"
+        t('tickets.basic.features.0'),
+        t('tickets.basic.features.1'),
+        t('tickets.basic.features.2'),
+        t('tickets.basic.features.3'),
+        t('tickets.basic.features.4')
       ],
       highlight: false,
       type: "presencial"
     },
     {
-      name: "PREMIUM EXPERIENCE",
+      name: t('tickets.premium.name'),
       price: "399€",
       features: [
-        "Todo lo incluido en Básico",
-        "Acceso ilimitado a masterclasses",
-        "Conference Area VIP",
-        "Kit premium Mallorca Sport Events",
-        "Networking exclusivo",
-        "Cena de gala"
+        t('tickets.premium.features.0'),
+        t('tickets.premium.features.1'),
+        t('tickets.premium.features.2'),
+        t('tickets.premium.features.3'),
+        t('tickets.premium.features.4'),
+        t('tickets.premium.features.5')
       ],
       highlight: true,
       type: "presencial"
     },
     {
-      name: "VIP ULTIMATE ELITE",
+      name: t('tickets.vip.name'),
       price: "799€",
       features: [
-        "Todo lo incluido en Premium",
-        "2 noches alojamiento 4* en Calvià",
-        "Desayunos incluidos",
-        "Meet & Greet con speakers",
-        "Acceso exclusivo zonas VIP",
-        "Gift premium",
-        "Servicio concierge"
+        t('tickets.vip.features.0'),
+        t('tickets.vip.features.1'),
+        t('tickets.vip.features.2'),
+        t('tickets.vip.features.3'),
+        t('tickets.vip.features.4'),
+        t('tickets.vip.features.5'),
+        t('tickets.vip.features.6')
       ],
       highlight: false,
       type: "presencial"
@@ -152,37 +164,44 @@ export default function FitnessWeekend2027Page() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white">
+    <div className="min-h-screen bg-black text-white selection:bg-neon-orange selection:text-black">
       {/* Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur-lg border-b border-orange-500/20">
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${isScrolled ? 'bg-black border-white/20' : 'bg-black/40 backdrop-blur-lg border-transparent'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-24">
             <Link href="/" className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-orange-500 rounded-lg flex items-center justify-center">
+              <div className="w-12 h-12 bg-neon-orange rounded-lg flex items-center justify-center">
                 <Award size={24} className="text-white" />
               </div>
-              <div className="text-xl font-black">
-                <span className="bg-gradient-to-r from-blue-400 to-orange-400 bg-clip-text text-transparent">
+              <div className="text-xl font-black skew-title">
+                <span className="text-neon-orange uppercase italic">
                   MALLORCA FITNESS WEEKEND 2027
                 </span>
               </div>
             </Link>
 
             <div className="hidden md:flex items-center space-x-8">
-              {['EVENTO', 'SPEAKERS', 'EXPERIENCIA', 'DESTINO', 'ENTRADAS'].map((item) => (
+              {[
+                { label: t('nav.evento'), id: 'evento' },
+                { label: t('nav.speakers'), id: 'speakers' },
+                { label: t('nav.experience'), id: 'experience' },
+                { label: t('nav.destination'), id: 'destination' },
+                { label: t('nav.tickets'), id: 'tickets' }
+              ].map((item) => (
                 <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className="text-sm font-bold text-gray-300 hover:text-orange-400 transition-colors"
+                  key={item.id}
+                  href={`#${item.id}`}
+                  className="text-sm font-bold text-gray-300 hover:text-neon-orange transition-colors"
                 >
-                  {item}
+                  {item.label}
                 </a>
               ))}
               <button
                 onClick={() => scrollToSection('entradas')}
-                className="px-6 py-3 bg-gradient-to-r from-orange-500 to-red-600 text-white font-black rounded-lg hover:shadow-xl hover:shadow-orange-500/50 transition-all">
-                RESERVAR VIP
+                className="px-6 py-3 btn-ironman rounded-none">
+                {t('nav.reserveVip')}
               </button>
+              <LanguageSwitcher />
             </div>
           </div>
         </div>
@@ -190,24 +209,26 @@ export default function FitnessWeekend2027Page() {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center pt-32 pb-20">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <Image
-            src="/mfw-2027/hero.png"
-            alt="MFW 2027"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-slate-950/60"></div>
+        {/* Video Background */}
+        <div className="absolute inset-0 overflow-hidden">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute min-w-full min-h-full object-cover opacity-40 grayscale contrast-125"
+          >
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-strong-man-training-with-a-tire-in-a-gym-23004-large.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-black/60"></div>
         </div>
 
         {/* VIP Badge */}
         <motion.div
-          initial={{ scale: 0, rotate: -180 }}
-          animate={{ scale: 1, rotate: 0 }}
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="absolute top-8 right-8 bg-gradient-to-r from-amber-500 to-yellow-600 text-black px-6 py-3 rounded-full font-black text-sm shadow-2xl shadow-amber-500/50"
+          className="absolute top-24 right-8 bg-[--color-ironman-red] text-white px-6 py-2 font-black text-sm skew-title tracking-widest shadow-2xl"
         >
           ⭐ VIP EXPERIENCE
         </motion.div>
@@ -219,45 +240,45 @@ export default function FitnessWeekend2027Page() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-6 leading-none">
-              <span className="block text-white">MALLORCA FITNESS WEEKEND 2027</span>
-              <span className="block bg-gradient-to-r from-blue-400 via-orange-400 to-red-500 bg-clip-text text-transparent">
-                THE ULTIMATE
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-9xl font-black tracking-tighter mb-6 leading-none flex flex-col items-center">
+              <span className="block text-white skew-title">{t('hero.title')}</span>
+              <span className="block text-neon-orange scale-110 -mt-2">
+                {t('hero.ultimate')}
               </span>
-              <span className="block text-amber-400">ELITE</span>
+              <span className="block text-[--color-ironman-red] bg-white text-black px-4 -mt-2 skew-title">{t('hero.elite')}</span>
             </h1>
 
-            <p className="text-2xl sm:text-3xl md:text-4xl text-orange-400 mb-4 font-black">
-              14, 15 Y 16 DE MAYO 2027
+            <p className="text-2xl sm:text-3xl md:text-5xl text-white mb-4 font-black tracking-widest uppercase italic bg-[--color-ironman-red] inline-block px-6 py-2 skew-title">
+              {t('hero.date')}
             </p>
-            <p className="text-xl sm:text-2xl text-gray-300 mb-12 font-bold flex items-center justify-center gap-2">
-              <MapPin size={24} className="text-orange-400" />
+            <p className="text-xl sm:text-2xl text-gray-400 mt-6 font-bold flex items-center justify-center gap-2 uppercase tracking-widest">
+              <MapPin size={24} className="text-neon-orange" />
               Calvià, Mallorca
             </p>
 
             {/* Countdown */}
             <div className="mb-12">
               <p className="text-sm uppercase tracking-widest text-gray-400 mb-6 font-bold">
-                CUENTA ATRÁS PARA LA EXCELENCIA
+                {t('hero.countdownTitle')}
               </p>
               <div className="flex justify-center gap-4">
                 {[
-                  { value: timeLeft.days, label: "DÍAS" },
-                  { value: timeLeft.hours, label: "HORAS" },
-                  { value: timeLeft.minutes, label: "MIN" },
-                  { value: timeLeft.seconds, label: "SEG" }
+                  { value: timeLeft.days, label: t('hero.days') },
+                  { value: timeLeft.hours, label: t('hero.hours') },
+                  { value: timeLeft.minutes, label: t('hero.minutes') },
+                  { value: timeLeft.seconds, label: t('hero.seconds') }
                 ].map((unit, index) => (
                   <motion.div
                     key={unit.label}
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 0.5 + index * 0.1, type: "spring" }}
-                    className="backdrop-blur-md bg-white/10 border-2 border-amber-500/50 rounded-2xl p-4 sm:p-6 min-w-[80px] sm:min-w-[120px]"
+                    className="bg-zinc-900 border-l-4 border-[--color-ironman-red] p-4 sm:p-6 min-w-[80px] sm:min-w-[120px] shadow-2xl skew-title"
                   >
-                    <div className="text-3xl sm:text-5xl font-black bg-gradient-to-r from-blue-400 to-orange-400 bg-clip-text text-transparent mb-2">
+                    <div className="text-3xl sm:text-5xl font-black text-white mb-1">
                       {String(unit.value).padStart(2, "0")}
                     </div>
-                    <div className="text-xs sm:text-sm uppercase tracking-wider text-gray-300 font-bold">
+                    <div className="text-xs sm:text-sm uppercase tracking-widest text-[#e20613] font-black">
                       {unit.label}
                     </div>
                   </motion.div>
@@ -271,17 +292,17 @@ export default function FitnessWeekend2027Page() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => scrollToSection('entradas')}
-                className="px-10 py-5 bg-gradient-to-r from-orange-500 to-red-600 text-white font-black text-xl rounded-full shadow-2xl shadow-orange-500/50 hover:shadow-orange-500/80 transition-all w-full sm:w-auto"
+                className="px-12 py-6 btn-ironman text-2xl rounded-none transition-all flex items-center gap-4"
               >
-                RESERVA TU EXPERIENCIA VIP
+                {t('hero.reserve')} <Zap size={24} className="animate-pulse" />
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => scrollToSection('evento')}
-                className="px-10 py-5 border-4 border-white text-white font-black text-xl rounded-full hover:bg-white hover:text-slate-950 transition-all w-full sm:w-auto"
+                className="px-12 py-6 border-4 border-white text-white font-black text-2xl rounded-none hover:bg-white hover:text-black transition-all w-full sm:w-auto uppercase tracking-tighter"
               >
-                VER PROGRAMA
+                {t('hero.seeProgram')}
               </motion.button>
             </div>
           </motion.div>
@@ -293,39 +314,38 @@ export default function FitnessWeekend2027Page() {
           transition={{ duration: 1.5, repeat: Infinity }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2"
         >
-          <ChevronDown size={32} className="text-orange-400" />
+          <ChevronDown size={32} className="text-neon-orange" />
         </motion.div>
       </section>
 
       {/* Sobre el Evento - La Promesa */}
-      <section id="evento" className="py-24 bg-gradient-to-b from-slate-950 to-slate-900" >
+      <section id="evento" className="py-32 bg-zinc-950 clip-diagonal ring-1 ring-white/10" >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-24"
           >
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-black mb-6">
-              <span className="bg-gradient-to-r from-blue-400 to-orange-400 bg-clip-text text-transparent">
-                MUCHO MÁS QUE UN ENCUENTRO
+            <h2 className="text-5xl sm:text-7xl md:text-8xl font-black mb-8 skew-title">
+              <span className="text-white">
+                {t('promise.title')}
               </span>
             </h2>
-            <p className="text-2xl sm:text-3xl text-white font-bold mb-4">
-              MALLORCA FITNESS WEEKEND es una convocatoria a la excelencia
+            <p className="text-2xl sm:text-4xl text-[--color-ironman-red] font-black mb-8 tracking-widest italic">
+              {t('promise.subtitle')}
             </p>
-            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              Durante dos días, <span className="text-orange-400 font-bold">Calvià será el epicentro del fitness mundial</span>, combinando formación certificada, masterclasses internacionales y networking de alto nivel por MALLORCA FITNESS WEEKEND.
-            </p>
+            <p className="text-2xl text-zinc-400 max-w-4xl mx-auto leading-tight font-medium"
+              dangerouslySetInnerHTML={{ __html: t('promise.description') }} />
           </motion.div>
 
           {/* 4 Iconos */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { icon: <GraduationCap size={48} />, title: "FORMACIÓN", desc: "Certificaciones oficiales" },
-              { icon: <Briefcase size={48} />, title: "NEGOCIO", desc: "Estrategia y gestión" },
-              { icon: <Award size={48} />, title: "PERFORMANCE", desc: "Excelencia deportiva" },
-              { icon: <Network size={48} />, title: "CONEXIÓN", desc: "Networking élite" }
+              { icon: <GraduationCap size={48} />, title: t('promise.cards.formation.title'), desc: t('promise.cards.formation.desc') },
+              { icon: <Briefcase size={48} />, title: t('promise.cards.business.title'), desc: t('promise.cards.business.desc') },
+              { icon: <Award size={48} />, title: t('promise.cards.performance.title'), desc: t('promise.cards.performance.desc') },
+              { icon: <Network size={48} />, title: t('promise.cards.connection.title'), desc: t('promise.cards.connection.desc') }
             ].map((item, index) => (
               <motion.div
                 key={item.title}
@@ -333,13 +353,13 @@ export default function FitnessWeekend2027Page() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="backdrop-blur-md bg-white/5 border-2 border-blue-500/30 rounded-2xl p-8 text-center hover:border-orange-400/60 hover:bg-white/10 transition-all group"
+                className="backdrop-blur-md bg-white/5 border-2 border-neon-orange/30 rounded-2xl p-8 text-center hover:border-neon-orange/60 hover:bg-white/10 transition-all group"
               >
-                <div className="w-20 h-20 bg-gradient-to-r from-blue-600 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                <div className="w-20 h-20 bg-[--color-ironman-red] rounded-none flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                   <div className="text-white">{item.icon}</div>
                 </div>
-                <h3 className="text-xl font-black mb-2 text-white">{item.title}</h3>
-                <p className="text-gray-400">{item.desc}</p>
+                <h3 className="text-2xl font-black mb-2 text-white skew-title">{item.title}</h3>
+                <p className="text-zinc-500 font-bold uppercase tracking-widest text-xs">{item.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -347,7 +367,7 @@ export default function FitnessWeekend2027Page() {
       </section>
 
       {/* Los Embajadores */}
-      <section id="speakers" className="py-24 bg-slate-900" >
+      <section id="speakers" className="py-24 bg-slate-900 clip-diagonal" >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -355,16 +375,16 @@ export default function FitnessWeekend2027Page() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <span className="text-amber-400 font-black text-sm uppercase tracking-wider mb-4 block">
-              ⭐ AUTORIDAD MUNDIAL
+            <span className="text-[--color-ironman-red] font-black text-sm uppercase tracking-[0.3em] mb-4 block">
+              ⭐ {t('ambassadors.authority')} ⭐
             </span>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-black mb-6">
-              <span className="bg-gradient-to-r from-amber-400 via-orange-400 to-red-500 bg-clip-text text-transparent">
-                LOS EMBAJADORES
+            <h2 className="text-5xl sm:text-7xl font-black mb-6 skew-title">
+              <span className="text-white">
+                {t('ambassadors.title')}
               </span>
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Líderes reconocidos internacionalmente que transformarán tu visión del fitness
+            <p className="text-xl text-zinc-500 max-w-3xl mx-auto uppercase font-bold tracking-widest">
+              {t('ambassadors.subtitle')}
             </p>
           </motion.div>
 
@@ -378,29 +398,28 @@ export default function FitnessWeekend2027Page() {
                 transition={{ delay: index * 0.2 }}
                 className="group"
               >
-                <div className="backdrop-blur-md bg-gradient-to-br from-white/10 to-white/5 border-4 border-amber-500/30 rounded-3xl overflow-hidden hover:border-amber-400/80 transition-all hover:shadow-2xl hover:shadow-amber-500/20">
+                <div className="bg-zinc-900 border-l-8 border-[--color-ironman-red] rounded-none overflow-hidden hover:bg-zinc-800 transition-all shadow-2xl">
                   {/* Image */}
-                  <div className="relative h-96 overflow-hidden">
+                  <div className="relative h-[500px] overflow-hidden">
                     <Image
                       src={ambassador.image}
                       alt={ambassador.name}
                       fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="object-cover image-dramatic group-hover:scale-110 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
 
-                    {/* Country Badge */}
-                    <div className="absolute top-4 right-4 bg-amber-500 text-black px-4 py-2 rounded-full font-black text-xs">
+                    <div className="absolute top-4 right-4 bg-[--color-ironman-red] text-white px-4 py-1 font-black text-xs skew-title">
                       {ambassador.country}
                     </div>
                   </div>
 
                   {/* Content */}
                   <div className="p-8">
-                    <h3 className="text-3xl font-black mb-2 text-white">{ambassador.name}</h3>
-                    <p className="text-orange-400 font-black text-lg mb-2">{ambassador.title}</p>
-                    <p className="text-blue-400 font-bold text-sm mb-4">{ambassador.subtitle}</p>
-                    <p className="text-gray-300 leading-relaxed">{ambassador.description}</p>
+                    <h3 className="text-4xl font-black mb-2 text-white skew-title">{ambassador.name}</h3>
+                    <p className="text-[--color-ironman-red] font-black text-xl mb-2 tracking-tighter">{ambassador.title}</p>
+                    <p className="text-zinc-500 font-bold text-sm mb-4 uppercase tracking-widest">{ambassador.subtitle}</p>
+                    <p className="text-zinc-400 font-medium leading-tight">{index === 0 ? t('ambassadors.descriptions.michael') : t('ambassadors.descriptions.israel')}</p>
                   </div>
                 </div>
               </motion.div>
@@ -416,17 +435,17 @@ export default function FitnessWeekend2027Page() {
           >
             <p className="text-lg text-gray-400 mb-4">
               <Sparkles className="inline mr-2" size={20} />
-              Nuevos formadores internacionales confirmándose semanalmente
+              {t('ambassadors.moreComing')}
             </p>
-            <p className="text-sm text-orange-400 font-bold">
-              Suscríbete a la newsletter para ser el primero en enterarte
+            <p className="text-sm text-neon-orange font-bold">
+              {t('ambassadors.newsletterPrompt')}
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Zonas de Experiencia */}
-      <section id="experiencia" className="py-24 bg-gradient-to-b from-slate-900 to-slate-950" >
+      <section id="experiencia" className="py-24 bg-gradient-to-b from-slate-900 to-slate-950 clip-diagonal" >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -434,13 +453,13 @@ export default function FitnessWeekend2027Page() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-black mb-6">
-              <span className="bg-gradient-to-r from-blue-400 to-orange-400 bg-clip-text text-transparent">
-                ZONAS DE EXPERIENCIA
+            <h2 className="text-5xl sm:text-7xl font-black mb-8 skew-title">
+              <span className="text-white">
+                {t('experience.title')}
               </span>
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              4 áreas diseñadas para transformar tu conocimiento y red profesional
+            <p className="text-xl text-zinc-500 max-w-3xl mx-auto uppercase font-bold tracking-[0.2em]">
+              {t('experience.subtitle')}
             </p>
           </motion.div>
 
@@ -452,20 +471,19 @@ export default function FitnessWeekend2027Page() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="backdrop-blur-md bg-white/5 border-2 border-blue-500/20 rounded-2xl p-8 hover:border-orange-400/60 hover:bg-white/10 transition-all group"
-              >
+                className="backdrop-blur-md bg-zinc-900 border-l-4 border-zinc-800 rounded-none p-8 hover:border-[--color-ironman-red] transition-all group">
                 <div className="flex items-start gap-6">
-                  <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-orange-500 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <div className="w-16 h-16 bg-[--color-ironman-red] rounded-none flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                     <div className="text-white">{zone.icon}</div>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-black mb-3 text-white">{zone.title}</h3>
-                    <p className="text-gray-300 mb-4 leading-relaxed">{zone.description}</p>
-                    <ul className="space-y-2">
+                    <h3 className="text-3xl font-black mb-3 text-white skew-title italic">{zone.title}</h3>
+                    <p className="text-zinc-400 mb-6 font-medium leading-tight">{zone.description}</p>
+                    <ul className="space-y-3">
                       {zone.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-center space-x-2 text-sm">
-                          <div className="w-1.5 h-1.5 bg-orange-400 rounded-full"></div>
-                          <span className="text-gray-400">{feature}</span>
+                        <li key={idx} className="flex items-center space-x-2 text-xs font-black tracking-widest uppercase italic">
+                          <div className="w-4 h-1 bg-[--color-ironman-red]"></div>
+                          <span className="text-zinc-300">{feature}</span>
                         </li>
                       ))}
                     </ul>
@@ -478,7 +496,7 @@ export default function FitnessWeekend2027Page() {
       </section>
 
       {/* Patrocinadores / Sponsors */}
-      <section id="sponsors" className="py-24 bg-slate-900 overflow-hidden" >
+      <section id="sponsors" className="py-24 bg-slate-900 overflow-hidden clip-diagonal" >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -487,12 +505,12 @@ export default function FitnessWeekend2027Page() {
             className="mb-16"
           >
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-black mb-6">
-              <span className="bg-gradient-to-r from-blue-400 to-orange-400 bg-clip-text text-transparent">
-                CON EL APOYO DE:
+              <span className="text-neon-orange">
+                {t('sponsors.title')}
               </span>
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Marcas e instituciones que apuestan por la excelencia en el fitness y el deporte
+              {t('sponsors.description')}
             </p>
           </motion.div>
 
@@ -518,13 +536,13 @@ export default function FitnessWeekend2027Page() {
             viewport={{ once: true }}
             className="mt-16 inline-block"
           >
-            <p className="text-gray-500 text-sm">¿Quieres ser patrocinador? <a href="mailto:oficinatecnica@onicestudio.com" className="text-orange-400 font-bold hover:underline">Contacta con nosotros</a></p>
+            <p className="text-gray-500 text-sm">{t('sponsors.contact')} <a href="mailto:oficinatecnica@onicestudio.com" className="text-neon-orange font-bold hover:underline">{t('sponsors.link')}</a></p>
           </motion.div>
         </div>
       </section>
 
       {/* Jornada Puertas Abiertas */}
-      <section className="py-24 bg-gradient-to-r from-blue-900 to-blue-800" >
+      <section className="py-24 bg-gradient-to-r from-orange-900 to-orange-800 clip-diagonal" >
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -532,27 +550,26 @@ export default function FitnessWeekend2027Page() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl sm:text-5xl font-black mb-6 text-white">
-              🏡 COMPROMISO LOCAL
+              {t('residents.title')}
             </h2>
             <p className="text-3xl font-black text-amber-400 mb-4">
-              "EL DEPORTE ES SALUD"
+              {t('residents.promise')}
             </p>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Jornada de Puertas Abiertas con <span className="font-black">acceso gratuito para residentes de Calvià</span>
-            </p>
+            <p className="text-xl text-orange-100 mb-8 max-w-2xl mx-auto"
+              dangerouslySetInnerHTML={{ __html: t('residents.description') }} />
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-10 py-4 bg-white text-blue-900 font-black text-lg rounded-full hover:bg-amber-400 hover:text-black transition-all"
+              className="px-10 py-4 bg-white text-orange-900 font-black text-lg rounded-full hover:bg-amber-400 hover:text-black transition-all"
             >
-              SOY RESIDENTE - MÁS INFO
+              {t('residents.button')}
             </motion.button>
           </motion.div>
         </div>
       </section>
 
       {/* Pricing */}
-      <section id="entradas" className="py-24 bg-slate-950" >
+      <section id="entradas" className="py-24 bg-slate-950 clip-diagonal" >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -561,11 +578,14 @@ export default function FitnessWeekend2027Page() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-black mb-6">
-              <span className="bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">
-                ELIGE TU EXPERIENCIA
+              <span className="text-neon-orange uppercase italic">
+                {t('tickets.title')}
               </span>
             </h2>
-            <p className="text-lg text-orange-400 font-bold mb-2">
+            <p className="text-xl text-zinc-500 max-w-3xl mx-auto uppercase font-black tracking-[0.3em] mb-4">
+              {t('tickets.subtitle')}
+            </p>
+            <p className="text-lg text-neon-orange font-bold mb-2">
               ⚠️ Los precios aumentarán progresivamente con la confirmación de nuevos formadores
             </p>
             <p className="text-gray-400">Mejor precio: Compra ahora</p>
@@ -580,39 +600,38 @@ export default function FitnessWeekend2027Page() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className={`backdrop-blur-md rounded-3xl p-8 transition-all hover:scale-105 ${tier.highlight
-                  ? 'bg-gradient-to-br from-amber-500/20 to-orange-500/20 border-4 border-amber-400 shadow-2xl shadow-amber-500/30'
-                  : 'bg-white/5 border-2 border-blue-500/30'
+                className={`rounded-none p-10 transition-all hover:-translate-y-4 ${tier.highlight
+                  ? 'bg-zinc-900 border-t-8 border-[--color-ironman-red] shadow-[0_30px_60px_-15px_rgba(226,6,19,0.3)] z-10'
+                  : 'bg-zinc-950 border border-zinc-800'
                   }`}
               >
                 {tier.highlight && (
-                  <div className="bg-amber-400 text-black text-xs font-black px-4 py-1 rounded-full inline-block mb-4">
-                    ⭐ MÁS POPULAR
+                  <div className="bg-[--color-ironman-red] text-white text-xs font-black px-6 py-2 inline-block mb-6 skew-title tracking-[0.2em]">
+                    ⭐ ELITE CHOICE ⭐
                   </div>
                 )}
-                <h3 className="text-2xl font-black mb-4 text-white">{tier.name}</h3>
-                <div className="mb-6">
-                  <span className="text-5xl font-black bg-gradient-to-r from-blue-400 to-orange-400 bg-clip-text text-transparent">
+                <h3 className="text-3xl font-black mb-4 text-white skew-title">{tier.name}</h3>
+                <div className="mb-8">
+                  <span className="text-7xl font-black text-white italic">
                     {tier.price}
                   </span>
-                  <span className="text-gray-400 text-sm ml-2">/persona</span>
                 </div>
-                <ul className="space-y-4 mb-8">
+                <ul className="space-y-5 mb-10">
                   {tier.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start space-x-3">
-                      <Star size={20} className={tier.highlight ? "text-amber-400 flex-shrink-0" : "text-blue-400 flex-shrink-0"} />
-                      <span className="text-gray-300 text-sm">{feature}</span>
+                    <li key={idx} className="flex items-start space-x-3 border-b border-zinc-800 pb-3">
+                      <Zap size={18} className={tier.highlight ? "text-[--color-ironman-red] flex-shrink-0" : "text-zinc-600 flex-shrink-0"} />
+                      <span className="text-zinc-300 text-sm font-bold uppercase tracking-widest leading-none">{feature}</span>
                     </li>
                   ))}
                 </ul>
                 <Link
                   href={`/${locale}/fitness-weekend/checkout?package=${encodeURIComponent(tier.name)}&price=${encodeURIComponent(tier.price)}`}
-                  className={`w-full py-4 rounded-full font-black text-lg transition-all text-center block ${tier.highlight
-                    ? 'bg-gradient-to-r from-amber-500 to-orange-600 text-black hover:shadow-xl hover:shadow-amber-500/50'
-                    : 'bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:from-blue-500 hover:to-blue-600'
+                  className={`w-full py-6 btn-ironman text-2xl rounded-none text-center block ${tier.highlight
+                    ? 'shadow-2xl brightness-110'
+                    : 'bg-white text-black hover:bg-zinc-200'
                     }`}
                 >
-                  RESERVAR AHORA
+                  {t('tickets.reserve')}
                 </Link>
               </motion.div>
             ))}
@@ -621,37 +640,35 @@ export default function FitnessWeekend2027Page() {
       </section>
 
       {/* Newsletter */}
-      <section className="py-24 bg-gradient-to-r from-blue-900 via-slate-900 to-orange-900" >
+      <section className="py-32 bg-zinc-950 clip-diagonal ring-1 ring-white/10" >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="backdrop-blur-xl bg-white/10 border-2 border-amber-400/50 rounded-3xl p-12 text-center"
+            className="text-center"
           >
-            <Mail size={48} className="text-amber-400 mx-auto mb-6" />
-            <h2 className="text-3xl sm:text-4xl font-black mb-4 text-white">
-              SÉ EL PRIMERO EN SABER
+            <h2 className="text-5xl sm:text-7xl font-black mb-8 skew-title">
+              <span className="text-white">{t('newsletter.title')}</span>
             </h2>
-            <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-              Nuevos speakers internacionales, ofertas exclusivas y contenido premium directamente en tu email
-            </p>
+            <p className="text-xl text-zinc-400 mb-12 uppercase font-black tracking-widest leading-tight"
+              dangerouslySetInnerHTML={{ __html: t('newsletter.subtitle') }} />
 
-            <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+            <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="tu@email.com"
+                placeholder={t('newsletter.placeholder')}
                 required
-                className="flex-1 px-6 py-4 rounded-full bg-white/10 border-2 border-white/30 text-white placeholder-gray-400 focus:outline-none focus:border-amber-400 transition-all"
+                className="flex-1 px-8 py-5 bg-zinc-900 border-2 border-zinc-800 text-white font-black rounded-none focus:outline-none focus:border-[--color-ironman-red] transition-all uppercase tracking-widest"
               />
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-600 text-black font-black rounded-full hover:shadow-xl hover:shadow-amber-500/50 transition-all disabled:opacity-50"
+                className="px-10 py-5 btn-ironman text-xl rounded-none disabled:opacity-50"
               >
-                {isSubmitting ? "ENVIANDO..." : "SUSCRIBIRME"}
+                {isSubmitting ? "..." : t('newsletter.button')}
               </button>
             </form>
           </motion.div>
@@ -659,35 +676,40 @@ export default function FitnessWeekend2027Page() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-950 border-t border-blue-500/20 py-16" >
+      <footer className="bg-black border-t-8 border-[--color-ironman-red] py-20" >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-16">
             {/* Info */}
             <div>
-              <h3 className="text-2xl font-black mb-4 bg-gradient-to-r from-blue-400 to-orange-400 bg-clip-text text-transparent">
-                MALLORCA FITNESS WEEKEND 2027
+              <h3 className="text-3xl font-black mb-6 text-white skew-title">
+                MFW 2027
               </h3>
-              <p className="text-gray-400 mb-4">
-                Mallorca Fitness Weekend<br />
-                The Ultimate Elite<br />
-                14-15-16 Mayo 2027
+              <p className="text-zinc-500 font-bold uppercase tracking-widest text-sm mb-6">
+                CALVIÀ, MALLORCA<br />
+                14-15-16 MAYO 2027
               </p>
-              <div className="flex items-start gap-2 text-gray-400 text-sm">
-                <MapPin size={16} className="mt-1 flex-shrink-0 text-orange-400" />
+              <div className="flex items-start gap-2 text-zinc-400 text-xs font-black tracking-tighter uppercase">
+                <MapPin size={16} className="mt-1 flex-shrink-0 text-[--color-ironman-red]" />
                 <span>Moli de Calvià / Recinto Firal<br />Calvià, Mallorca, España</span>
               </div>
             </div>
 
-            {/* Enlaces */}
+            {/* Links */}
             <div>
-              <h4 className="text-lg font-black mb-4 text-white">NAVEGACIÓN</h4>
-              <ul className="space-y-2">
-                {['Sobre el Evento', 'Speakers', 'Zonas de Experiencia', 'Destino Calvià', 'Pricing'].map((item) => (
-                  <li key={item}>
+              <h4 className="text-xl font-black mb-6 text-white skew-title">{t('footer.navigation')}</h4>
+              <ul className="space-y-3">
+                {[
+                  { label: t('nav.evento'), id: 'evento' },
+                  { label: t('nav.speakers'), id: 'speakers' },
+                  { label: t('nav.experience'), id: 'experience' },
+                  { label: t('nav.destination'), id: 'destination' },
+                  { label: t('nav.tickets'), id: 'tickets' }
+                ].map((item) => (
+                  <li key={item.id}>
                     <button
-                      onClick={() => scrollToSection(item.toLowerCase().replace(/ /g, '-').replace('zonas-de-experiencia', 'experiencia').replace('destino-calvià', 'destino').replace('sobre-el-evento', 'evento'))}
-                      className="text-gray-400 hover:text-orange-400 transition-colors">
-                      {item}
+                      onClick={() => scrollToSection(item.id)}
+                      className="text-zinc-500 hover:text-white transition-colors font-black uppercase tracking-widest text-xs">
+                      {item.label}
                     </button>
                   </li>
                 ))}
@@ -696,31 +718,23 @@ export default function FitnessWeekend2027Page() {
 
             {/* Contacto y Redes */}
             <div>
-              <h4 className="text-lg font-black mb-4 text-white">CONTACTO</h4>
-              <div className="space-y-3 mb-6">
-                <a href="mailto:info@mfw2027.com" className="flex items-center gap-2 text-gray-400 hover:text-orange-400 transition-colors">
-                  <Mail size={16} />
+              <h4 className="text-xl font-black mb-6 text-white skew-title">{t('footer.contact')}</h4>
+              <div className="space-y-4 mb-8">
+                <a href="mailto:info@mfw2027.com" className="flex items-center gap-3 text-zinc-500 hover:text-white transition-colors font-black uppercase tracking-widest text-xs">
+                  <Mail size={16} className="text-[--color-ironman-red]" />
                   <span>info@mfw2027.com</span>
                 </a>
-                <a href="tel:+34971000000" className="flex items-center gap-2 text-gray-400 hover:text-orange-400 transition-colors">
-                  <Phone size={16} />
-                  <span>+34 971 000 000</span>
-                </a>
               </div>
-
-              <h4 className="text-sm font-black mb-3 text-gray-400 uppercase tracking-wide">Síguenos</h4>
               <div className="flex space-x-4">
                 {[
-                  { icon: <Instagram size={20} />, link: "#" },
-                  { icon: <Facebook size={20} />, link: "#" },
-                  { icon: <Linkedin size={20} />, link: "#" },
-                  { icon: <Twitter size={20} />, link: "#" }
+                  { icon: <Instagram size={20} />, link: "https://www.instagram.com/mallorcafitweekend/?hl=es" },
+                  { icon: <Facebook size={20} />, link: "https://www.facebook.com/mallorcafitweekend/?locale=es_ES" }
                 ].map((social, idx) => (
                   <motion.a
                     key={idx}
                     href={social.link}
-                    whileHover={{ scale: 1.2 }}
-                    className="w-10 h-10 bg-gradient-to-r from-blue-600 to-orange-500 rounded-full flex items-center justify-center text-white hover:shadow-lg hover:shadow-orange-500/50 transition-all"
+                    whileHover={{ scale: 1.1, translateY: -5 }}
+                    className="w-12 h-12 bg-zinc-900 border border-zinc-800 flex items-center justify-center text-white hover:bg-[--color-ironman-red] hover:border-transparent transition-all"
                   >
                     {social.icon}
                   </motion.a>
@@ -730,25 +744,23 @@ export default function FitnessWeekend2027Page() {
           </div>
 
           {/* Sponsors */}
-          <div className="border-t border-blue-500/20 pt-8 mb-8">
-            <h4 className="text-center text-sm font-black text-gray-400 uppercase tracking-wide mb-6">
-              Organizadores y Patrocinadores
+          <div className="border-t border-zinc-800 pt-8 mb-8">
+            <h4 className="text-center text-xs font-black text-zinc-600 uppercase tracking-[0.3em] mb-8">
+              ORGANIZADORES Y PATROCINADORES
             </h4>
-            <div className="flex flex-wrap justify-center items-center gap-8">
-              {['Mallorca Sport Events', 'Ayuntamiento Calvià', 'Partners'].map((sponsor, idx) => (
-                <div key={idx} className="text-gray-500 font-bold text-sm">
-                  {sponsor}
-                </div>
-              ))}
+            <div className="flex flex-wrap justify-center items-center gap-12 opacity-50 grayscale hover:opacity-100 transition-opacity">
+              <span className="text-white font-black text-xl italic skew-title">CALVIA</span>
+              <span className="text-white font-black text-xl italic skew-title">ONICE</span>
+              <span className="text-white font-black text-xl italic skew-title">NIKE</span>
+              <span className="text-white font-black text-xl italic skew-title">RED BULL</span>
             </div>
           </div>
 
           {/* Copyright */}
-          <div className="border-t border-blue-500/20 pt-8 text-center text-sm text-gray-500">
+          <div className="border-t border-zinc-900 pt-8 text-center text-[10px] text-zinc-600 font-bold uppercase tracking-widest">
             <p>
-              © 2027 Mallorca Fitness Weekend. Organizado por <span className="text-white font-bold">Mallorca Sport Events</span>
+              © 2027 MALLORCA FITNESS WEEKEND. OPERADO POR <span className="text-white">MALLORCA SPORT EVENTS</span>
             </p>
-            <p className="mt-2">Todos los derechos reservados.</p>
           </div>
         </div>
       </footer>

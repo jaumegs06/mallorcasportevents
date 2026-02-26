@@ -102,7 +102,7 @@ const Tickets = () => {
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-[--color-neon-green] via-[--color-neon-cyan] to-[--color-neon-orange] rounded-full blur-3xl"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[--color-neon-orange]/10 rounded-full blur-3xl"
         ></motion.div>
       </div>
 
@@ -133,7 +133,7 @@ const Tickets = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {tickets.map((ticket, index) => {
             const colorClasses = getColorClasses(ticket.color, ticket.popular);
-            
+
             return (
               <motion.div
                 key={ticket.id}
@@ -147,16 +147,15 @@ const Tickets = () => {
                 {/* Popular Badge */}
                 {ticket.popular && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20">
-                    <div className="px-6 py-2 rounded-full bg-gradient-to-r from-[--color-neon-green] to-[--color-neon-cyan] text-black font-black text-xs uppercase tracking-wider">
+                    <div className="px-6 py-2 rounded-full bg-[--color-neon-cyan] text-black font-black text-xs uppercase tracking-wider">
                       Más Popular
                     </div>
                   </div>
                 )}
 
                 <div
-                  className={`glass rounded-3xl p-8 border-2 ${colorClasses.border} ${colorClasses.hoverBorder} transition-all duration-300 h-full flex flex-col ${
-                    ticket.popular ? "shadow-2xl shadow-[--color-neon-cyan]/30" : ""
-                  }`}
+                  className={`glass rounded-3xl p-8 border-2 ${colorClasses.border} ${colorClasses.hoverBorder} transition-all duration-300 h-full flex flex-col ${ticket.popular ? "shadow-2xl shadow-[--color-neon-cyan]/30" : ""
+                    }`}
                 >
                   {/* Icon */}
                   <div className={`${colorClasses.text} mb-4`}>{ticket.icon}</div>
@@ -194,11 +193,10 @@ const Tickets = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className={`w-full py-4 rounded-full font-black text-lg transition-all duration-300 ${
-                      ticket.popular
-                        ? "bg-gradient-to-r from-[--color-neon-green] to-[--color-neon-cyan] text-black hover:shadow-xl hover:shadow-[--color-neon-cyan]/50"
+                    className={`w-full py-4 rounded-full font-black text-lg transition-all duration-300 ${ticket.popular
+                        ? "bg-[--color-neon-cyan] text-black hover:shadow-xl hover:shadow-[--color-neon-cyan]/50"
                         : `glass border-2 ${colorClasses.border} text-white ${colorClasses.hoverBorder}`
-                    }`}
+                      }`}
                   >
                     COMPRAR AHORA
                   </motion.button>

@@ -93,5 +93,209 @@
       "nutrition": "Personalized nutrition program"
     },
     "footer": "All prices include VAT • Free cancellation up to 30 days before the event"
+  },
+  "fitnessWeekend": {
+    "nav": {
+      "evento": "EVENT",
+      "speakers": "SPEAKERS",
+      "experience": "EXPERIENCE",
+      "destination": "DESTINATION",
+      "tickets": "TICKETS",
+      "reserveVip": "RESERVE VIP"
+    },
+    "hero": {
+      "title": "MALLORCA FITNESS WEEKEND",
+      "ultimate": "THE ULTIMATE",
+      "elite": "ELITE",
+      "date": "MAY 14 / 15 / 16, 2027",
+      "countdownTitle": "COUNTDOWN TO EXCELLENCE",
+      "days": "DAYS",
+      "hours": "HOURS",
+      "minutes": "MIN",
+      "seconds": "SEC",
+      "reserve": "RESERVE YOUR EXPERIENCE",
+      "seeProgram": "SEE PROGRAM"
+    },
+    "ambassadors": {
+      "title": "THE AMBASSADORS",
+      "subtitle": "LEADERS WHO CHALLENGE THE LIMITS",
+      "authority": "WORLD AUTHORITY",
+      "moreComing": "New international trainers being confirmed weekly",
+      "newsletterPrompt": "Subscribe to the newsletter to be the first to know",
+      "roles": {
+        "leader": "World Fitness Industry Leader",
+        "strategic": "International Strategic Advisor",
+        "reference": "National Fitness Reference",
+        "trajectory": "25 Years of Experience"
+      },
+      "descriptions": {
+        "michael": "With more than 25 years leading the digital transformation of fitness in Europe",
+        "israel": "Pioneer of functional fitness in Spain and mentor of generations"
+      }
+    },
+    "promise": {
+      "title": "MUCH MORE THAN A MEETING",
+      "subtitle": "TOTAL TRANSFORMATION. EXTREME PERFORMANCE.",
+      "description": "FOR TWO DAYS, <span className=\"text-white font-black bg-[--color-ironman-red] px-2\">CALVIÀ WILL BE THE EPICENTER</span> OF GLOBAL FITNESS. MALLORCA FITNESS WEEKEND IS A CALL TO EXCELLENCE.",
+      "cards": {
+        "formation": {
+          "title": "TRAINING",
+          "desc": "Official certifications"
+        },
+        "business": {
+          "title": "BUSINESS",
+          "desc": "Strategy and management"
+        },
+        "performance": {
+          "title": "PERFORMANCE",
+          "desc": "Sports excellence"
+        },
+        "connection": {
+          "title": "CONNECTION",
+          "desc": "Elite networking"
+        }
+      }
+    },
+    "sponsors": {
+      "title": "SUPPORTED BY:",
+      "description": "Brands and institutions that commit to excellence in fitness and sport",
+      "contact": "Want to be a sponsor?",
+      "link": "Contact us"
+    },
+    "residents": {
+      "title": "LOCAL COMMITMENT",
+      "promise": "\"SPORT IS HEALTH\"",
+      "description": "Open House Day with <span className=\"font-black\">free access for Calvià residents</span>",
+      "button": "I AM A RESIDENT - MORE INFO"
+    },
+    "footer": {
+      "address": "Calle Gran Via, 1 (Palma)",
+      "contact": "Contact",
+      "navigation": "Navigation",
+      "legal": "Legal",
+      "terms": "Terms & Conditions",
+      "privacy": "Privacy",
+      "cookies": "Cookies"
+    },
+    "experience": {
+      "title": "EXPERIENCE ZONES",
+      "subtitle": "DESIGNED FOR HIGH PERFORMANCE",
+      "expo": {
+        "title": "Fitness Expo",
+        "description": "Latest trends and technology in the global fitness sector",
+        "features": [
+          "Innovative equipment",
+          "Live demos",
+          "Commercial networking"
+        ]
+      },
+      "classes": {
+        "title": "Guided Activities",
+        "description": "Live masterclasses with the best international trainers",
+        "features": [
+          "CrossFit Elite",
+          "Advanced HIIT",
+          "Premium Yoga"
+        ]
+      },
+      "mindBody": {
+        "title": "Body and Mind",
+        "description": "Wellness area dedicated to integral balance",
+        "features": [
+          "Yoga & Meditation",
+          "Pilates Reformer",
+          "Mindfulness"
+        ]
+      },
+      "conference": {
+        "title": "Conference Area",
+        "description": "Talks on management, corporate health, and leadership",
+        "features": [
+          "Business Fitness",
+          "Management",
+          "Leadership"
+        ]
+      }
+    },
+    "tickets": {
+      "title": "CHOOSE YOUR LEVEL",
+      "subtitle": "LIMITED ACCESS FOR THE BEST",
+      "reserve": "RESERVE",
+      "basic": {
+        "name": "BASIC ACCESS",
+        "features": [
+          "2 full days access",
+          "Fitness Expo",
+          "3 Masterclasses of choice",
+          "Event material",
+          "Digital certificate"
+        ]
+      },
+      "premium": {
+        "name": "PREMIUM EXPERIENCE",
+        "features": [
+          "Everything in Basic",
+          "Unlimited masterclass access",
+          "VIP Conference Area",
+          "Premium Mallorca Sport Events Kit",
+          "Exclusive networking",
+          "Gala dinner"
+        ]
+      },
+      "vip": {
+        "name": "VIP ULTIMATE ELITE",
+        "features": [
+          "Everything in Premium",
+          "2 nights 4* accommodation in Calvià",
+          "Breakfast included",
+          "Meet & Greet with speakers",
+          "Exclusive VIP area access",
+          "Premium gift",
+          "Concierge service"
+        ]
+      }
+    },
+    "newsletter": {
+      "title": "JOIN THE ELITE",
+      "subtitle": "RECEIVE EXCLUSIVE INFORMATION ON NEW TRAINERS AND VIP EXPERIENCES.",
+      "placeholder": "YOUR HIGH PERFORMANCE EMAIL",
+      "button": "SUBSCRIBE"
+    },
+    "checkout": {
+      "success": {
+        "title": "PAYMENT RECEIVED!",
+        "description": "We have received your transfer receipt. Our team will verify the payment and you will receive a confirmation email with your official ticket in the next 24-48 hours.",
+        "backButton": "BACK TO EVENT"
+      },
+      "navigation": {
+        "back": "Back"
+      },
+      "summary": {
+        "title": "Order Summary",
+        "features": {
+          "access": "Full access to all sessions",
+          "certificate": "Official attendance certificate",
+          "welcomePack": "Premium welcome pack"
+        }
+      },
+      "info": {
+        "transferNotice": "To complete your registration, you must make a bank transfer and attach the receipt in the next step. Your spot will not be reserved until we validate the payment."
+      },
+      "step1": {
+        "ready": "Ready to go?",
+        "description": "By clicking the button you will see the bank details to perform the transfer. Remember to save the receipt to upload it here.",
+        "button": "PROCEED TO PAYMENT"
+      },
+      "step2": {
+        "data": "Transfer Details",
+        "beneficiary": "Beneficiary",
+        "iban": "IBAN",
+        "concept": "Concept",
+        "uploadTitle": "Attach Receipt",
+        "uploadButton": "Click or drag your screenshot here",
+        "uploadFormats": "Formats: JPG, PNG, PDF (Max. 5MB)",
+        "uploading": "Uploading screenshot..."
+      }
+    }
   }
 }

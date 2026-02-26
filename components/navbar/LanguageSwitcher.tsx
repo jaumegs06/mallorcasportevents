@@ -4,51 +4,46 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { usePathname, useRouter } from '@/i18n/routing';
 import { Globe } from "lucide-react";
+import { useParams } from "next/navigation";
 
 const LanguageSwitcher = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
+  const params = useParams();
+  const currentLocale = params.locale as string;
 
   const languages = [
-    { code: 'es', name: 'Español', flag: '🇪🇸' },
-    { code: 'en', name: 'English', flag: '🇬🇧' },
-    { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
+    { code: 'es', label: 'ES' },
+    { code: 'en', label: 'EN' },
+    { code: 'de', label: 'DE' },
   ];
 
   const handleLanguageChange = (locale: string) => {
     router.replace(pathname, { locale });
-    setIsOpen(false);
   };
 
   return (
-    <div className="relative">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-2 px-3 py-2 rounded-full glass border border-white/20 hover:border-white/40 transition-all duration-300 text-white"
-      >
-        <Globe size={18} />
-      </button>
+    <div className="relative flex items-center bg-zinc-900/80 backdrop-blur-md p-1.5 rounded-full border border-white/10 shadow-2xl">
+      {/* Moving Background Slider */}
+      <div className="absolute inset-y-1.5 left-1.5 flex transition-all duration-300 ease-out"
+        style={{
+          width: `calc((100% - 12px) / 3)`,
+          transform: `translateX(${languages.findIndex(l => l.code === currentLocale) * 100}%)`
+        }}>
+        <div className="w-full h-full bg-white rounded-full shadow-lg" />
+      </div>
 
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          className="absolute top-full right-0 mt-2 glass border border-white/20 rounded-2xl overflow-hidden min-w-[150px]"
+      {/* Buttons */}
+      {languages.map((lang) => (
+        <button
+          key={lang.code}
+          onClick={() => handleLanguageChange(lang.code)}
+          className={`relative z-10 w-12 h-8 flex items-center justify-center text-[10px] font-black transition-colors duration-300 ${currentLocale === lang.code ? 'text-black' : 'text-zinc-500 hover:text-white'
+            }`}
         >
-          {languages.map((lang) => (
-            <button
-              key={lang.code}
-              onClick={() => handleLanguageChange(lang.code)}
-              className="w-full px-4 py-3 text-left hover:bg-white/10 transition-colors flex items-center space-x-3 text-white"
-            >
-              <span className="text-xl">{lang.flag}</span>
-              <span className="font-semibold text-sm">{lang.name}</span>
-            </button>
-          ))}
-        </motion.div>
-      )}
+          {lang.label}
+        </button>
+      ))}
     </div>
   );
 };
