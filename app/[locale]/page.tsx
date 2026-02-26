@@ -66,11 +66,12 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
+    <div className="min-h-screen bg-[#0a0a0a] selection:bg-[--color-ironman-red] selection:text-white">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative h-[90vh] flex items-center justify-center overflow-hidden border-b border-white/5">
         {/* Background Pattern */}
-        <div className="absolute inset-0 bg-grid-pattern-light opacity-50"></div>
+        <div className="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0a0a]/50 to-[#0a0a0a]"></div>
 
         {/* Content */}
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
@@ -78,14 +79,15 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            className="space-y-4"
           >
-            <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter mb-6 text-gray-900">
+            <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[10rem] font-[900] tracking-[calc(-0.05em)] leading-[0.85] mb-8 text-white uppercase italic skew-title">
               MALLORCA
-              <span className="block bg-gradient-to-r from-lime-500 via-cyan-500 to-red-600 bg-clip-text text-transparent">
+              <span className="block text-[--color-ironman-red]">
                 SPORT EVENTS
               </span>
             </h1>
-            <p className="text-xl sm:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto font-light">
+            <p className="text-lg sm:text-xl text-zinc-500 mb-16 max-w-2xl mx-auto uppercase font-black tracking-[0.2em] italic">
               Organizadores de los eventos deportivos más espectaculares de Mallorca
             </p>
           </motion.div>
@@ -95,16 +97,16 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="flex flex-wrap justify-center gap-8 sm:gap-12"
+            className="flex flex-wrap justify-center gap-12 sm:gap-20"
           >
             {[
-              { label: '2 Eventos', subtext: 'Premium' },
-              { label: 'Mallorca', subtext: 'Destino Único' },
-              { label: '2026-2027', subtext: 'Próximas Fechas' }
+              { label: '2 Eventos', subtext: 'PREMIUM' },
+              { label: 'Mallorca', subtext: 'DESTINO ÚNICO' },
+              { label: '2026-2027', subtext: 'PRÓXIMAS FECHAS' }
             ].map((item, idx) => (
-              <div key={idx} className="text-center">
-                <div className="text-2xl sm:text-3xl font-black text-gray-900">{item.label}</div>
-                <div className="text-sm text-gray-500 font-medium">{item.subtext}</div>
+              <div key={idx} className="text-center group">
+                <div className="text-3xl sm:text-4xl font-[900] text-white italic skew-title mb-1">{item.label}</div>
+                <div className="text-[10px] text-zinc-500 font-black tracking-[0.3em] group-hover:text-[--color-ironman-red] transition-colors">{item.subtext}</div>
               </div>
             ))}
           </motion.div>
@@ -119,13 +121,14 @@ export default function HomePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-24"
           >
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight mb-4 text-gray-900">
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-[900] tracking-tighter mb-4 text-white italic skew-title">
               NUESTROS EVENTOS
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Elige tu próxima aventura deportiva en Mallorca
+            <div className="w-24 h-1 bg-[--color-ironman-red] mx-auto mb-8"></div>
+            <p className="text-sm text-zinc-500 max-w-xl mx-auto uppercase font-black tracking-widest leading-loose">
+              Elige tu próxima aventura deportiva en Mallorca. Solo para los que buscan la excelencia.
             </p>
           </motion.div>
 
@@ -140,58 +143,59 @@ export default function HomePage() {
                 className="group"
               >
                 <Link href={event.link}>
-                  <div className="relative h-[600px] rounded-3xl overflow-hidden shadow-2xl cursor-pointer">
+                  <div className="relative h-[700px] rounded-none overflow-hidden shadow-2xl cursor-pointer border border-white/5 group-hover:border-[--color-ironman-red]/30 transition-colors">
                     {/* Background Image */}
                     <div className="absolute inset-0">
                       <Image
                         src={event.bgImage}
                         alt={event.title}
                         fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-700"
+                        className="object-cover group-hover:scale-110 transition-transform duration-1000 grayscale-[20%] contrast-[1.1]"
                       />
-                      <div className={`absolute inset-0 bg-gradient-to-t ${event.theme === 'dark' ? 'from-black via-black/80 to-black/40' : 'from-white via-white/80 to-white/40'}`}></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/60 to-transparent"></div>
                     </div>
 
                     {/* Content */}
                     <div className="relative h-full flex flex-col justify-between p-8">
                       {/* Icon */}
-                      <div className={`w-20 h-20 rounded-full bg-gradient-to-br ${event.color} flex items-center justify-center text-white shadow-lg`}>
+                      <div className="w-24 h-24 rounded-none bg-[--color-ironman-red] flex items-center justify-center text-white shadow-2xl relative">
+                        <div className="absolute -inset-2 border border-[--color-ironman-red]/20 scale-110 group-hover:scale-125 transition-transform duration-500"></div>
                         {event.icon}
                       </div>
 
                       {/* Event Info */}
                       <div>
-                        <h3 className={`text-4xl sm:text-5xl font-black tracking-tight mb-2 ${event.theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
-                          {event.title}
+                        <h3 className="text-5xl sm:text-6xl font-[900] tracking-tighter mb-4 text-white italic skew-title leading-none">
+                          {event.title.toUpperCase()}
                         </h3>
-                        <p className={`text-xl mb-6 ${event.theme === 'dark' ? 'text-cyan-400' : 'text-red-600'} font-bold uppercase tracking-wider`}>
+                        <p className="text-sm mb-6 text-[--color-ironman-red] font-black uppercase tracking-[0.3em] italic">
                           {event.subtitle}
                         </p>
-                        <p className={`text-lg mb-8 ${event.theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
+                        <p className="text-sm mb-10 text-zinc-400 font-medium uppercase tracking-widest leading-relaxed max-w-sm">
                           {event.description}
                         </p>
 
                         {/* Event Details */}
-                        <div className="flex flex-wrap gap-6 mb-8">
-                          <div className="flex items-center space-x-2">
-                            <Calendar size={20} className={event.theme === 'dark' ? 'text-lime-400' : 'text-red-600'} />
-                            <span className={`font-semibold ${event.theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>{event.date}</span>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10 border-t border-white/10 pt-8 mt-8">
+                          <div className="flex items-center space-x-3">
+                            <Calendar size={16} className="text-[--color-ironman-red]" />
+                            <span className="font-black text-[10px] text-zinc-300 uppercase tracking-widest">{event.date}</span>
                           </div>
-                          <div className="flex items-center space-x-2">
-                            <MapPin size={20} className={event.theme === 'dark' ? 'text-cyan-400' : 'text-red-600'} />
-                            <span className={`font-semibold ${event.theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>{event.location}</span>
+                          <div className="flex items-center space-x-3">
+                            <MapPin size={16} className="text-[--color-ironman-red]" />
+                            <span className="font-black text-[10px] text-zinc-300 uppercase tracking-widest">{event.location}</span>
                           </div>
-                          <div className="flex items-center space-x-2">
-                            <Users size={20} className={event.theme === 'dark' ? 'text-orange-400' : 'text-red-600'} />
-                            <span className={`font-semibold ${event.theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>{event.participants} participantes</span>
+                          <div className="flex items-center space-x-3">
+                            <Users size={16} className="text-[--color-ironman-red]" />
+                            <span className="font-black text-[10px] text-zinc-300 uppercase tracking-widest">{event.participants}</span>
                           </div>
                         </div>
 
                         {/* CTA Button */}
                         <motion.div
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          className={`inline-block px-8 py-4 rounded-full font-black text-lg bg-gradient-to-r ${event.color} text-white shadow-lg group-hover:shadow-2xl transition-all duration-300`}
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          className="inline-block px-10 py-5 btn-ironman text-white font-[900] text-sm tracking-[0.2em] italic skew-title"
                         >
                           VER EVENTO
                         </motion.div>
@@ -206,13 +210,14 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className="bg-black text-white py-20 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <h3 className="text-2xl font-black mb-4">MALLORCA SPORT EVENTS</h3>
-          <p className="text-gray-400 mb-6">
+          <h3 className="text-3xl font-[900] mb-6 italic skew-title tracking-tighter">MALLORCA <span className="text-[--color-ironman-red]">SPORT EVENTS</span></h3>
+          <p className="text-zinc-500 mb-12 uppercase font-black text-[10px] tracking-[0.4em]">
             Creando experiencias deportivas inolvidables en Mallorca
           </p>
-          <p className="text-sm text-gray-500">
+          <div className="w-12 h-px bg-white/10 mx-auto mb-12"></div>
+          <p className="text-[10px] text-zinc-600 font-bold uppercase tracking-widest">
             © 2026 Mallorca Sport Events. Todos los derechos reservados.
           </p>
         </div>

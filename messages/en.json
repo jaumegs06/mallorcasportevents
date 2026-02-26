@@ -136,7 +136,7 @@
     "promise": {
       "title": "MUCH MORE THAN A MEETING",
       "subtitle": "TOTAL TRANSFORMATION. EXTREME PERFORMANCE.",
-      "description": "FOR TWO DAYS, <span className=\"text-white font-black bg-[--color-ironman-red] px-2\">CALVIÀ WILL BE THE EPICENTER</span> OF GLOBAL FITNESS. MALLORCA FITNESS WEEKEND IS A CALL TO EXCELLENCE.",
+      "description": "FOR TWO DAYS, <span class=\"text-white font-black bg-[--color-ironman-red] px-2\">CALVIÀ WILL BE THE EPICENTER</span> OF GLOBAL FITNESS. MALLORCA FITNESS WEEKEND IS A CALL TO EXCELLENCE.",
       "cards": {
         "formation": {
           "title": "TRAINING",

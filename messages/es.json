@@ -136,7 +136,7 @@
     "promise": {
       "title": "MUCHO MÁS QUE UN ENCUENTRO",
       "subtitle": "TRANSFORMACIÓN TOTAL. RENDIMIENTO EXTREMO.",
-      "description": "DURANTE DOS DÍAS, <span className=\"text-white font-black bg-[--color-ironman-red] px-2\">CALVIÀ SERÉ EL EPICENTRO</span> DEL FITNESS MUNDIAL. MALLORCA FITNESS WEEKEND ES UNA CONVOCATORIA A LA EXCELENCIA.",
+      "description": "DURANTE DOS DÍAS, <span class=\"text-white font-black bg-[--color-ironman-red] px-2\">CALVIÀ SERÉ EL EPICENTRO</span> DEL FITNESS MUNDIAL. MALLORCA FITNESS WEEKEND ES UNA CONVOCATORIA A LA EXCELENCIA.",
       "cards": {
         "formation": {
           "title": "FORMACIÓN",
