@@ -83,13 +83,13 @@ async function main() {
         {
             question_es: '¿Dónde se realizan los eventos?',
             answer_es:
-                'Los eventos se realizan en diferentes ubicaciones de Mallorca. El Fitness Weekend se celebra en Calvià, Rad am Ring recorre toda la isla, y la Ruta Solidaria va de Madrid a Sevilla.',
+                'Los eventos se realizan en diferentes ubicaciones de Mallorca. El Fitness Weekend se celebra en MOTORWORLD Mallorca, Rad am Ring recorre toda la isla, y la Ruta Solidaria va de Madrid a Sevilla.',
             question_en: 'Where are the events held?',
             answer_en:
-                'Events are held in different locations in Mallorca. The Fitness Weekend is held in Calvià, Rad am Ring tours the entire island, and the Solidarity Route goes from Madrid to Seville.',
+                'Events are held in different locations in Mallorca. The Fitness Weekend is held in MOTORWORLD Mallorca, Rad am Ring tours the entire island, and the Solidarity Route goes from Madrid to Seville.',
             question_de: 'Wo finden die Veranstaltungen statt?',
             answer_de:
-                'Die Veranstaltungen finden an verschiedenen Orten auf Mallorca statt. Das Fitness Weekend findet in Calvià statt, Rad am Ring führt über die gesamte Insel, und die Solidaritätsroute führt von Madrid nach Sevilla.',
+                'Die Veranstaltungen finden an verschiedenen Orten auf Mallorca statt. Das Fitness Weekend findet in MOTORWORLD Mallorca statt, Rad am Ring führt über die gesamte Insel, und die Solidaritätsroute führt von Madrid nach Sevilla.',
             category: 'venue',
             order: 1,
         },

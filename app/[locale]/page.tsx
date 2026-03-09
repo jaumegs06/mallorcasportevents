@@ -17,7 +17,7 @@ export default function HomePage() {
       subtitle: '⭐ The Ultimate Elite',
       description: 'La experiencia fitness más premium y profesional de Europa con speakers internacionales',
       date: '14-16 Mayo 2027',
-      location: 'Calvià, Mallorca',
+      location: 'MOTORWORLD Mallorca',
       participants: 'VIP Experience',
       icon: (
         <div className="relative">

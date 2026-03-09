@@ -126,17 +126,19 @@
         "leader": "World Fitness Industry Leader",
         "strategic": "International Strategic Advisor",
         "reference": "National Fitness Reference",
-        "trajectory": "25 Years of Experience"
+        "trajectory": "25 Years of Experience",
+        "marketing": "Marketing & Branding Expert"
       },
       "descriptions": {
-        "michael": "With more than 25 years leading the digital transformation of fitness in Europe",
-        "israel": "Pioneer of functional fitness in Spain and mentor of generations"
+        "michael": "Fitness visionary, quantum health expert, and international lecturer. A pioneer in bio-optimization and intestinal health, Michael transforms destinies through conscious movement and plant-based medicine. Ambassador for the American Diplomatic Mission and the Senate of Economics.",
+        "israel": "Pioneer of functional fitness in Spain and mentor of generations",
+        "christine": "International entrepreneur, branding expert, and longevity pioneer. As founder of Q-LoungeFit and ambassador for FIBO and MR OLYMPIA, Christine leads thousands toward a healthier life through detox nutrition and emotional intelligence."
       }
     },
     "promise": {
       "title": "MUCH MORE THAN A MEETING",
       "subtitle": "TOTAL TRANSFORMATION. EXTREME PERFORMANCE.",
-      "description": "FOR TWO DAYS, <span class=\"text-white font-black bg-[--color-ironman-red] px-2\">CALVIÀ WILL BE THE EPICENTER</span> OF GLOBAL FITNESS. MALLORCA FITNESS WEEKEND IS A CALL TO EXCELLENCE.",
+      "description": "FOR TWO DAYS, <span class=\"text-white font-black bg-[--color-ironman-red] px-2\">MOTORWORLD Mallorca WILL BE THE EPICENTER</span> OF GLOBAL FITNESS. MALLORCA FITNESS WEEKEND IS A CALL TO EXCELLENCE.",
       "cards": {
         "formation": {
           "title": "TRAINING",
@@ -165,7 +167,7 @@
     "residents": {
       "title": "LOCAL COMMITMENT",
       "promise": "\"SPORT IS HEALTH\"",
-      "description": "Open House Day with <span className=\"font-black\">free access for Calvià residents</span>",
+      "description": "Open House Day with <span className=\"font-black\">free access for MOTORWORLD Mallorca residents</span>",
       "button": "I AM A RESIDENT - MORE INFO"
     },
     "footer": {
@@ -246,7 +248,7 @@
         "name": "VIP ULTIMATE ELITE",
         "features": [
           "Everything in Premium",
-          "2 nights 4* accommodation in Calvià",
+          "2 nights 4* accommodation in MOTORWORLD Mallorca",
           "Breakfast included",
           "Meet & Greet with speakers",
           "Exclusive VIP area access",

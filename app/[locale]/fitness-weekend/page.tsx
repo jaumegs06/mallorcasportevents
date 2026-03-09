@@ -76,10 +76,18 @@ export default function FitnessWeekend2027Page() {
     {
       name: "Michael Alois Wagner",
       country: "Austria",
-      title: t('ambassadors.roles.leader'),
-      subtitle: t('ambassadors.roles.strategic'),
-      image: "/mfw-2027/michael-wagner.png",
-      description: "Con más de 25 años liderando la transformación digital del fitness en Europa"
+      title: "Consultant & Lobbyist",
+      subtitle: "Fitness Influencer & Hall of Fame",
+      image: "/mfw-2027/michael-wagner.jpeg",
+      description: t('ambassadors.descriptions.michael')
+    },
+    {
+      name: "Christine Schreiner",
+      country: "Austria",
+      title: t('ambassadors.roles.marketing'),
+      subtitle: "Fitness & Lifestyle Influencer",
+      image: "/mfw-2027/christine-.jpeg",
+      description: t('ambassadors.descriptions.christine')
     },
     {
       name: "Israel Malebre",
@@ -87,7 +95,7 @@ export default function FitnessWeekend2027Page() {
       title: t('ambassadors.roles.reference'),
       subtitle: t('ambassadors.roles.trajectory'),
       image: "/mfw-2027/israel-malebre.png",
-      description: "Pionero del fitness funcional en España y mentor de generaciones"
+      description: t('ambassadors.descriptions.israel')
     }
   ];
 
@@ -253,7 +261,7 @@ export default function FitnessWeekend2027Page() {
             </p>
             <p className="text-xl sm:text-2xl text-gray-400 mt-6 font-bold flex items-center justify-center gap-2 uppercase tracking-widest">
               <MapPin size={24} className="text-neon-orange" />
-              Calvià, Mallorca
+              MOTORWORLD Mallorca
             </p>
 
             {/* Countdown */}
@@ -388,7 +396,7 @@ export default function FitnessWeekend2027Page() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {ambassadors.map((ambassador, index) => (
               <motion.div
                 key={ambassador.name}
@@ -400,14 +408,13 @@ export default function FitnessWeekend2027Page() {
               >
                 <div className="bg-zinc-900 border-l-8 border-[--color-ironman-red] rounded-none overflow-hidden hover:bg-zinc-800 transition-all shadow-2xl">
                   {/* Image */}
-                  <div className="relative h-[500px] overflow-hidden">
+                  <div className="relative h-[450px] lg:h-[500px] overflow-hidden">
                     <Image
                       src={ambassador.image}
                       alt={ambassador.name}
                       fill
                       className="object-cover image-dramatic group-hover:scale-110 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
 
                     <div className="absolute top-4 right-4 bg-[--color-ironman-red] text-white px-4 py-1 font-black text-xs skew-title">
                       {ambassador.country}
@@ -415,11 +422,11 @@ export default function FitnessWeekend2027Page() {
                   </div>
 
                   {/* Content */}
-                  <div className="p-8">
-                    <h3 className="text-4xl font-black mb-2 text-white skew-title">{ambassador.name}</h3>
-                    <p className="text-[--color-ironman-red] font-black text-xl mb-2 tracking-tighter">{ambassador.title}</p>
-                    <p className="text-zinc-500 font-bold text-sm mb-4 uppercase tracking-widest">{ambassador.subtitle}</p>
-                    <p className="text-zinc-400 font-medium leading-tight">{index === 0 ? t('ambassadors.descriptions.michael') : t('ambassadors.descriptions.israel')}</p>
+                  <div className="p-6 sm:p-8">
+                    <h3 className="text-3xl sm:text-4xl font-black mb-2 text-white skew-title leading-none">{ambassador.name}</h3>
+                    <p className="text-[--color-ironman-red] font-black text-lg sm:text-xl mb-2 tracking-tighter leading-tight">{ambassador.title}</p>
+                    <p className="text-zinc-500 font-bold text-xs sm:text-sm mb-4 uppercase tracking-widest">{ambassador.subtitle}</p>
+                    <p className="text-zinc-400 font-medium leading-tight text-sm sm:text-base">{ambassador.description}</p>
                   </div>
                 </div>
               </motion.div>
@@ -685,12 +692,12 @@ export default function FitnessWeekend2027Page() {
                 MFW 2027
               </h3>
               <p className="text-zinc-500 font-bold uppercase tracking-widest text-sm mb-6">
-                CALVIÀ, MALLORCA<br />
+                MOTORWORLD Mallorca<br />
                 14-15-16 MAYO 2027
               </p>
               <div className="flex items-start gap-2 text-zinc-400 text-xs font-black tracking-tighter uppercase">
                 <MapPin size={16} className="mt-1 flex-shrink-0 text-[--color-ironman-red]" />
-                <span>Moli de Calvià / Recinto Firal<br />Calvià, Mallorca, España</span>
+                <span>Moli de MOTORWORLD Mallorca / Recinto Firal<br />MOTORWORLD Mallorca, España</span>
               </div>
             </div>
 
@@ -749,7 +756,7 @@ export default function FitnessWeekend2027Page() {
               ORGANIZADORES Y PATROCINADORES
             </h4>
             <div className="flex flex-wrap justify-center items-center gap-12 opacity-50 grayscale hover:opacity-100 transition-opacity">
-              <span className="text-white font-black text-xl italic skew-title">CALVIA</span>
+              <span className="text-white font-black text-xl italic skew-title">MOTORWORLD Mallorca</span>
               <span className="text-white font-black text-xl italic skew-title">ONICE</span>
               <span className="text-white font-black text-xl italic skew-title">NIKE</span>
               <span className="text-white font-black text-xl italic skew-title">RED BULL</span>

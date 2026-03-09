@@ -126,17 +126,19 @@
         "leader": "Líder Mundial Industria Fitness",
         "strategic": "Asesor Estratégico Internacional",
         "reference": "Referencia Nacional del Fitness",
-        "trajectory": "25 Años de Trayectoria"
+        "trajectory": "25 Años de Trayectoria",
+        "marketing": "Experta en Marketing y Branding"
       },
       "descriptions": {
-        "michael": "Con más de 25 años liderando la transformación digital del fitness en Europa",
-        "israel": "Pionero del fitness funcional en España y mentor de generaciones"
+        "michael": "Misionero del fitness, experto en salud cuántica y conferenciante internacional. Pionero en bio-optimización y salud intestinal, Michael transforma destinos a través del movimiento consciente y la medicina basada en plantas. Embajador de la Misión Diplomática Americana y del Senado de Economía.",
+        "israel": "Pionero del fitness funcional en España y mentor de generaciones",
+        "christine": "Emprendedora internacional, experta en branding y pionera en longevidad. Como fundadora de Q-LoungeFit y embajadora de FIBO y MR OLYMPIA, Christine lidera a miles de personas hacia una vida más saludable mediante la nutrición detox y la inteligencia emocional."
       }
     },
     "promise": {
       "title": "MUCHO MÁS QUE UN ENCUENTRO",
       "subtitle": "TRANSFORMACIÓN TOTAL. RENDIMIENTO EXTREMO.",
-      "description": "DURANTE DOS DÍAS, <span class=\"text-white font-black bg-[--color-ironman-red] px-2\">CALVIÀ SERÉ EL EPICENTRO</span> DEL FITNESS MUNDIAL. MALLORCA FITNESS WEEKEND ES UNA CONVOCATORIA A LA EXCELENCIA.",
+      "description": "DURANTE DOS DÍAS, <span class=\"text-white font-black bg-[--color-ironman-red] px-2\">MOTORWORLD Mallorca SERÉ EL EPICENTRO</span> DEL FITNESS MUNDIAL. MALLORCA FITNESS WEEKEND ES UNA CONVOCATORIA A LA EXCELENCIA.",
       "cards": {
         "formation": {
           "title": "FORMACIÓN",
@@ -165,7 +167,7 @@
     "residents": {
       "title": "COMPROMISO LOCAL",
       "promise": "\"EL DEPORTE ES SALUD\"",
-      "description": "Jornada de Puertas Abiertas con <span className=\"font-black\">acceso gratuito para residentes de Calvià</span>",
+      "description": "Jornada de Puertas Abiertas con <span className=\"font-black\">acceso gratuito para residentes de MOTORWORLD Mallorca</span>",
       "button": "SOY RESIDENTE - MÁS INFO"
     },
     "footer": {
@@ -246,7 +248,7 @@
         "name": "VIP ULTIMATE ELITE",
         "features": [
           "Todo lo incluido en Premium",
-          "2 noches alojamiento 4* en Calvià",
+          "2 noches alojamiento 4* en MOTORWORLD Mallorca",
           "Desayunos incluidos",
           "Meet & Greet con speakers",
           "Acceso exclusivo zonas VIP",

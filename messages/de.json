@@ -126,17 +126,19 @@
         "leader": "Weltmarktführer Fitnessindustrie",
         "strategic": "Internationaler Strategieberater",
         "reference": "Nationale Fitnessreferenz",
-        "trajectory": "25 Jahre Erfahrung"
+        "trajectory": "25 Jahre Erfahrung",
+        "marketing": "Marketing- und Branding-Expertin"
       },
       "descriptions": {
-        "michael": "Mit mehr als 25 Jahren Erfahrung in der digitalen Transformation von Fitness in Europa",
-        "israel": "Pionier des funktionellen Fitness in Spanien und Mentor von Generationen"
+        "michael": "Fitness-Visionär, Experte für Quantengesundheit und internationaler Redner. Als Pionier in der Bio-Optimierung und Darmgesundheit transformiert Michael Schicksale durch bewusste Bewegung und pflanzliche Medizin. Botschafter der American Diplomatic Mission und des Senats der Wirtschaft.",
+        "israel": "Pionier des funktionellen Fitness in Spanien und Mentor von Generationen",
+        "christine": "Internationale Unternehmerin, Branding-Expertin und Longevity-Pionierin. Als Gründerin von Q-LoungeFit und Botschafterin für FIBO und MR OLYMPIA führt Christine tausende Menschen durch Detox-Ernährung und emotionale Intelligenz zu einem gesünderen Leben."
       }
     },
     "promise": {
       "title": "MEHR ALS NUR EIN TREFFEN",
       "subtitle": "TOTALE TRANSFORMATION. EXTREME LEISTUNG.",
-      "description": "ZWEI TAGE LANG WIRD <span class=\"text-white font-black bg-[--color-ironman-red] px-2\">CALVIÀ DAS EPIZENTRUM</span> DES GLOBALEN FITNESS SEIN. MALLORCA FITNESS WEEKEND IS EIN AUFRUF ZUR EXZELLENZ.",
+      "description": "ZWEI TAGE LANG WIRD <span class=\"text-white font-black bg-[--color-ironman-red] px-2\">MOTORWORLD Mallorca DAS EPIZENTRUM</span> DES GLOBALEN FITNESS SEIN. MALLORCA FITNESS WEEKEND IS EIN AUFRUF ZUR EXZELLENZ.",
       "cards": {
         "formation": {
           "title": "AUSBILDUNG",
@@ -165,7 +167,7 @@
     "residents": {
       "title": "LOKALES ENGAGEMENT",
       "promise": "\"SPORT IST GESUNDHEIT\"",
-      "description": "Tag der offenen Tür mit <span className=\"font-black\">kostenlosem Zugang für Einwohner von Calvià</span>",
+      "description": "Tag der offenen Tür mit <span className=\"font-black\">kostenlosem Zugang für Einwohner von MOTORWORLD Mallorca</span>",
       "button": "ICH BIN EINWOHNER - MEHR INFO"
     },
     "footer": {
@@ -246,7 +248,7 @@
         "name": "VIP ULTIMATE ELITE",
         "features": [
           "Alles im Premium-Paket",
-          "2 Nächte 4* Unterkunft in Calvià",
+          "2 Nächte 4* Unterkunft in MOTORWORLD Mallorca",
           "Frühstück inklusive",
           "Meet & Greet mit Sprechern",
           "Exklusiver Zugang zum VIP-Bereich",
